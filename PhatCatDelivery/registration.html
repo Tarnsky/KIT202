@@ -2,10 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Registration</title>
+    <title>registration</title>
   </head>
   <body>
-    <h1>Marathon Registration</h1>
+    <h1>Phatcat Registration</h1>
     <form class="">
       <table>
         <tr>
@@ -24,19 +24,12 @@
           </td>
         </tr>
         <tr>
-          <td>Select a race</td>
-          <td><select name="race" id="race" required>
-            <option value = "" hidden disabled selected = "selected">Select your race</option>
-                <option value="5k">Fun Run 5k</option>
-                <option value="half">Half Marathon</option>
-                <option value="full">Full Marathon</option>
-
-            </select>
-          </td>
-        </tr>
-        <tr>
           <td>Email</td>
           <td><input type="email" id="email" required></td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td><input type="address" id="address" required></td>
         </tr>
         <tr>
           <td>Password</td>
@@ -47,17 +40,6 @@
           <td><input type="password" id="confirm_password" required></td>
         </tr>
         <tr>
-          <td>Age Group</td>
-          <td><select name="division" id="division" required>
-            <option value = "" hidden disabled selected = "selected">Select your age group</option>
-                <option value="kids">under 18</option>
-                <option value="ya">18-30</option>
-                <option value="adults">30-50</option>
-                <option value="seniors">50+</option>
-            </select>
-          </td>
-        </tr>
-
       </table>
       <button type = "submit">Register</button>
 
