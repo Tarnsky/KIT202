@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Partner Register</title>
+  </head>
+  <body>
+    <h1>Phatcat Partner Registration</h1>
+    <form class="">
+      <table>
+        <tr>
+          <td>First Name</td>
+          <td><input type="text" id="fname" required></td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td><input type="text" id="lname" required></td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td><input type="radio" id="gender" value = "female" >Female
+            <input type="radio" id="gender" value = "male">Male
+            <input type="radio" id="gender" value = "other">Other
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="email" id="email" required></td>
+        </tr>
+        <tr>
+          <td>Restaurant Address</td>
+          <td><input type="address" id="address" required></td>
+        </tr>
+        <tr>
+            <td>Restaurant Verification code</td>
+            <td><input type="text" id="lname" required></td>
+          </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="password" id="password" required pattern = "(?=.*\d)(?=.*[A-Za-z]).{6,8}" title = "Must contain at least one number, one letters and between 6 and 8 characters"></td>
+        </tr>
+        <tr>
+          <td>Confirm Password</td>
+          <td><input type="password" id="confirm_password" required></td>
+        </tr>
+        
+          
+      </table>
+      <button type = "submit">Register</button>
+
+    </form>
+
+
+  </body>
+</html>
