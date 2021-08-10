@@ -2,7 +2,22 @@
   background-image: url('img/Phatcat.jpg');
   height: 400px;
 }
+.footer{
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: #ffffff;
+  text-align: center;: #888888;
 
+}
+a:link{
+  color: white;
+}
+a:visited {
+  color: white;
+}
 .img-responsive{
   overflow: hidden;
   height: 100%;
