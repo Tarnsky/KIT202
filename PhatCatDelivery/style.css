@@ -102,6 +102,17 @@ background colour is #016ff9
 }
 
 
+.search button{
+  background-color: #000000;
+  color: #f2f2f2;
+  float: right;
+  padding: 5px 10px;
+  margin-right: 16px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+}
+
 
 /* the class = "food-features-item"
 font is weighted at 600
@@ -118,7 +129,7 @@ it has a border at the top at 1px with color:  #e1f1ff
   font-size: 12px;
   line-height: 1.5;
   padding: 15px 0;
-  border-top: 1px solid #e1f1ff;
+  border-top: 1px solid #000000;
 }
 
 /* the last element of the class = "food-features-item"
