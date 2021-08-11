@@ -1,25 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Account Details</title>
-    <link rel="stylesheet" href="style.css">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- Popper JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <!-- Popper JS -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</head>
-<body>
-  <header>
-    <!-- Navbar -->
+    <!-- Latest compiled JavaScript -->
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div class="container-fluid">
         <button
@@ -42,9 +39,6 @@
             <a class="nav-link"  data-toggle="modal" data-target="#regiModal">Registration</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="menu.html">Order</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="index.html">About</a>
           </li>
           <li class="nav-item">
@@ -63,27 +57,108 @@
       </div>
     </div>
   </nav>
+    <div class="tabs">
+      <div class="tab-header">
+        <div class="active"> 
+          Account Details
+        </div>
+        <div>
+          Transaction History
+        </div>
+        <div>
+          Balance
+        </div>
 
-  <!-- Background image -->
-  <div
-  class="p-5 text-center bg-image header-background" >
-  <div class="mask">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="text-white">
-        <h1 class="mb-3">Phatcat Delivery</h1>
-        <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button"
-        >SIGN UP</a
-        >
       </div>
+      <div class="tab-content">
+        <div class="active">
+          <table>
+            <tr>
+              <td>Name: </td>
+              <td>Your Name</td>
+            </tr>
+            <tr>
+              <td>Age: </td>
+              <td>Your Age</td>
+            </tr>
+            <tr>
+              <td>Mobile Number: </td>
+              <td>Mobile number</td>
+            </tr>
+            <tr>
+              <td>Password: </td>
+              <td>Your Password</td>
+            </tr>
+            <tr>
+              <td>Address: </td>
+              <td>Your Address</td>
+            </tr>
+            <tr>
+              <td>Card #: </td>
+              <td>Your Card #</td>
+            </tr>
+            <tr><td><button>Edit</button></td></tr>
+          </table>
+        </div>
+        <div>
+          <table>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Balance</th>
+            </tr>
+            <tr>
+              <td>11/11/21 </td>
+              <td>KFC</td>
+              <td>-$13.99</td>
+              <td>$1164.34</td>
+            </tr>
+            <tr>
+              <td>10/11/21: </td>
+              <td>Pizza House</td>
+              <td>-$10.00</td>
+              <td>$1154.34</td>
+            </tr>
+            <tr>
+              <td>7/11/21</td>
+              <td>Deposit +$100</td>
+              <td>+$100</td>
+              <td>$1254.34</td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <table>
+            <tr>
+              <td>
+                Current Balance:
+              </td>
+              <td>
+                $1254.34
+              </td>
+            </tr>
+          </table>
+          <tr><td><button>Deposit</button></td></tr>
+        </div>
+      </div>
+
     </div>
-  </div>
-</div>
-  </head>
-  <body>
-    <div class="container">
-    <h1>Account Details</h1>
-    <p>View your account details here</p>
-    </div>
-    
+    <script>
+      let tabHeaders = document.querySelectorAll(".tabs .tab-header >div");
+      let tabContents = document.querySelectorAll(".tabs .tab-content > div");
+  
+      for (let i = 0; i < tabHeaders.length; i++) {
+        tabHeaders[i].addEventListener("click",function() {
+          document.querySelector(".tabs .tab-header > .active").classList.remove("active");
+          tabHeaders[i].classList.add("active");
+          document.querySelector(".tabs .tab-content > .active").classList.remove("active");
+          tabContents[i].classList.add("active");
+        })
+        
+      }
+  
+  
+    </script>
   </body>
 </html>
