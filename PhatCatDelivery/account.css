@@ -1,0 +1,89 @@
+* {box-sizing: border-box}
+
+body {
+    background-color: #60a9ff;
+}
+
+.tabs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 700px;
+    height: 400px;
+    background: lightgrey;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px 2px #ccc;
+    display: flex;
+}
+
+.tabs .tab-header > div {
+    width: 100%;
+    height: calc(100% / 3);
+    background:#ddd;
+    text-indent: 20px;
+    color: #888;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    border-left: 5px solid #ddd;
+}
+
+.tabs .tab-header > div.active {
+    border-left: 5px solid #00acee;
+    color: #00acee;
+    background: #eee;
+}
+.tabs .tab-content {
+    padding: 20px 30px;
+    flex: 1;
+    position: relative;
+}
+.tabs .tab-content > div {
+    position: absolute;
+    top: -50vh;
+    left: 100px;
+    opacity: 0;
+}
+.tabs .tab-content > div.active {
+    top: 20px;
+    left: 20px;
+    opacity: 1;
+}
+
+table {
+    border-spacing: 15px;
+
+
+}
+
+.tabs .tab-content table td {
+    padding: 10px;
+    margin-bottom: 10%;
+    background: lightgrey;
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black;
+}
+
+button:hover {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+
+
