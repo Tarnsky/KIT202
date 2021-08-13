@@ -59,7 +59,7 @@
         </form>
       </nav>
     </div>
-
+  <!-- Tabs created for account -->
   </nav>
     <div class="tabs">
       <div class="tab-header">
@@ -74,6 +74,7 @@
         </div>
 
       </div>
+      <!-- Tab content for defualt active page  which is the account details -->
       <div class="tab-content">
         <div class="active">
           <table>
@@ -104,6 +105,7 @@
             <tr><td><button>Edit</button></td></tr>
           </table>
         </div>
+        <!-- tab content for balance history -->
         <div>
           <table>
             <tr>
@@ -132,6 +134,7 @@
             </tr>
           </table>
         </div>
+        <!-- Tab contents for account balance -->
         <div>
           <table>
             <tr>
@@ -149,9 +152,13 @@
 
     </div>
     <script>
+      //script for tab headers and tab contents, query the selector through class 
+      // and assignt it to tabHeaders and tabcontents variables
       let tabHeaders = document.querySelectorAll(".tabs .tab-header >div");
       let tabContents = document.querySelectorAll(".tabs .tab-content > div");
-  
+      
+      //Loop through tab headers, once the tab header is click it will change
+      // the class to active and show the active tab content
       for (let i = 0; i < tabHeaders.length; i++) {
         tabHeaders[i].addEventListener("click",function() {
           document.querySelector(".tabs .tab-header > .active").classList.remove("active");
