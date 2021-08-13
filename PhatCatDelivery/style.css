@@ -14,6 +14,7 @@
   background-color: rgba(0, 0, 0, 0.6)
 }
 
+
 /* Body:
 Background color : #60a9ff
 All the contents and item should be aligned in center and displayed with flex.
@@ -50,6 +51,8 @@ All texts are displayed in uppercases
   flex-direction: column;
   text-align: center;
   text-transform: uppercase;
+  box-shadow: 10px 5px 5px rgb(231, 7, 7);
+  
 }
 
 
@@ -59,6 +62,7 @@ It has a border at the bottom with 1 px, weightning, color: #e1f1ff
 
 .food-plan {
   border-bottom: 1px solid #e1f1ff;
+  
 }
 
 /* the last elements under the class = "food-plan"
@@ -83,7 +87,7 @@ Maximum width size is 100%
 
 .pricing-plan {
   margin-left: 40px;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 /* the class = "food-header"
