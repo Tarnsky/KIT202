@@ -16,11 +16,12 @@
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
   <header>
-    <!-- Navbar -->
+
+  <!-- Navbar -->
+
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div class="container-fluid">
         <button
@@ -48,11 +49,12 @@
           <li class="nav-item">
             <a class="nav-link" href="account.html">Account</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link"  data-toggle="modal" data-target="#PartnerregiModal">Become a partner</a>
+          </li>
         </ul>
 
-
-
+  <!-- Search Bar -->
 
       </div>
         <nav class="navbar navbar-light bg-white justify-content-between">
@@ -62,10 +64,10 @@
       </form>
         </nav>
     </div>
-
   </nav>
 
   <!-- Background image -->
+
   <div
   class="p-5 text-center bg-image header-background" >
   <div class="mask">
@@ -81,8 +83,9 @@
     </div>
   </div>
 </div>
-<!-- Background image -->
 </header>
+
+<!-- Restaurants -->
 
 <div class = "order">
   <div class="panel">
@@ -146,10 +149,10 @@
       <img class = "img-responsive" src="img/phatcat3.jpg" alt="">
     </div>
   </div>
-
 </div>
 
-  <!-- registration Modal Form -->
+  <!-- Registration Modal Form -->
+
   <div class="modal fade" id="regiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -188,16 +191,13 @@
                 <td><input class = "form-control"  type="password" id="confirm_password" name = "confirm_password" required ></td>
               </tr>
             </table>
-
             <button class = "btn btn-danger float-right" type = "submit">Register</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </form>
-
-
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
 <!-- Partner registration Modal Form -->
 <div class="modal fade" id="PartnerregiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -240,18 +240,16 @@
               <td><input type="password" id="confirm_password" required></td>
             </tr>
           </table>
-
           <button class = "btn btn-danger float-right" type = "submit">Register</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </form>
-
-
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 </div>
 
   <!-- login Modal Form-->
+
   <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -264,8 +262,6 @@
         <div class="modal-body">
           <form role = "form" class="regiForm">
             <table class = "responsive">
-
-
               <tr class="form-group">
                 <td>Email</td>
                 <td><input  class = "form-control" type="email" id="email" name ="email" required></td>
@@ -276,17 +272,16 @@
                 <td><input class = "form-control"  type="password" id="password" name = "password" required pattern = "(?=.*\d)(?=.*[A-Za-z]).{6,8}" title = "Must contain at least one number, one letters and between 6 and 8 characters"></td>
               </tr>
             </table>
-
             <button class = "btn btn-danger float-right" type = "submit">Login</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </form>
-
-
         </div>
       </div>
     </div>
   </div>
+
   <!-- Order Modal Form Burger Town-->
+
   <div class="modal fade" id="burgerModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -318,17 +313,16 @@
                 <tr class="form-group">
                   <td>Total Price</td>
             </table>
-
             <button class = "btn btn-danger float-right" type = "submit">Order</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </form>
-
-
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
-<!-- Order Modal Form PizzaLand-->
+
+  <!-- Order Modal Form PizzaLand-->
+
   <div class="modal fade" id="pizzaModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -361,17 +355,16 @@
                 <tr class="form-group">
                   <td>Total Price</td>
             </table>
-
             <button class = "btn btn-danger float-right" type = "submit">Order</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </form>
-
-
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
-<!-- Order Modal Form PastaPalace-->
+
+  <!-- Order Modal Form PastaPalace-->
+
 <div class="modal fade" id="pastaModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -408,18 +401,14 @@
               <tr class="form-group">
                 <td>Total Price</td>
           </table>
-
           <button class = "btn btn-danger float-right" type = "submit">Order</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </form>
-
-
-</div>
+      </div>
     </div>
   </div>
-  
-
-  </div>
+</div>
+<!-- Footer -->
   <div class="footer">
     <footer>
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
@@ -428,7 +417,6 @@
         <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">Manager Login</a></li>
         <li class="list-inline-item"><a href="#">Terms</a></li>
         <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#PartnerregiModal">Become a partner</a></li>
       </ul>
     </footer>
   </div>
