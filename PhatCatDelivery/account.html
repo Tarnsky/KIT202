@@ -27,13 +27,13 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container-fluid">
       <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarExample01"
-              aria-controls="navbarExample01"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
       >
         <i class="fas fa-bars"></i>
       </button>
@@ -48,18 +48,16 @@
           <li class="nav-item">
             <a class="nav-link" href="account.html">Account</a>
           </li>
-
         </ul>
-
-      </div>
-      <nav class="navbar navbar-light bg-white justify-content-between">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="restaurant" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </nav>
+      </div>  
+    <nav class="navbar navbar-light bg-white justify-content-between">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="restaurant" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </div>
-  <!-- Tabs created for account -->
+  </nav>
+<!-- Tabs created for account -->
   </nav>
     <div class="tabs">
       <div class="tab-header">
@@ -72,9 +70,8 @@
         <div>
           Balance
         </div>
-
       </div>
-      <!-- Tab content for defualt active page  which is the account details -->
+<!-- Tab content for defualt active page  which is the account details -->
       <div class="tab-content">
         <div class="active">
           <table>
@@ -105,7 +102,7 @@
             <tr><td><button>Edit</button></td></tr>
           </table>
         </div>
-        <!-- tab content for balance history -->
+<!-- tab content for balance history -->
         <div>
           <table>
             <tr>
@@ -134,7 +131,7 @@
             </tr>
           </table>
         </div>
-        <!-- Tab contents for account balance -->
+<!-- Tab contents for account balance -->
         <div>
           <table>
             <tr>
@@ -149,11 +146,10 @@
           <tr><td><button>Deposit</button></td></tr>
         </div>
       </div>
-
     </div>
     <script>
-      //script for tab headers and tab contents, query the selector through class 
-      // and assignt it to tabHeaders and tabcontents variables
+//script for tab headers and tab contents, query the selector through class 
+// and assignt it to tabHeaders and tabcontents variables
       let tabHeaders = document.querySelectorAll(".tabs .tab-header >div");
       let tabContents = document.querySelectorAll(".tabs .tab-content > div");
       
@@ -166,11 +162,10 @@
           document.querySelector(".tabs .tab-content > .active").classList.remove("active");
           tabContents[i].classList.add("active");
         })
-        
       }
     </script>
 
-    <!-- Footer -->
+<!-- Footer -->
     
     <div class="footer">
       <footer>
