@@ -57,8 +57,8 @@
     </div>
   </div>
 </nav>
-  <!-- Order Modal Form -->
-  <div class="modal fade" id="orderModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Order Modal Form Burger Town-->
+  <div class="modal fade" id="burgerModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -68,28 +68,26 @@
           </button>
         </div>
         <div class="modal-body">
-          <form role = "form" class="orderForm">
+          <form role = "form" class="burgerForm">
             <table class = "responsive">
               <tr class="form-group">
-                <td>Pizza</td>
-                <td><input  type="radio" id="size" value = "small" >Small $3
-                  <input   type="radio" id="size" value = "male">Medium $5
-                  <input   type="radio" id="size" value = "other">Large $8
-                </td>
                 <tr class="form-group">
-                  <td>Coke</td>
-                  <td><input  type="radio" id="size" value = "small" >Small $3
-                    <input   type="radio" id="size" value = "male">Medium $5
-                    <input   type="radio" id="size" value = "other">Large $8
-                  </td>
+                  <td>Cheese Burger $10</td>
+                  <td>Quantity</td>
+                  <td><input  class = "form-control" type="text" id="cburger" name = "cburger" ></td>
                 </tr>
                 <tr class="form-group">
-                  <td>Chips</td>
-                  <td><input  type="radio" id="size" value = "small" >Small $3
-                    <input   type="radio" id="size" value = "male">Medium $5
-                    <input   type="radio" id="size" value = "other">Large $8
-                  </td>
+                  <td>Coke $5</td>
+                  <td>Quantity</td>
+                  <td><input  class = "form-control" type="text" id="coke" name = "coke" ></td>
                 </tr>
+                <tr class="form-group">
+                  <td>Chips $5</td>
+                  <td>Quantity</td>
+                  <td><input  class = "form-control" type="text" id="chip" name = "chip" ></td>
+                </tr>
+                <tr class="form-group">
+                  <td>Total Price</td>
             </table>
 
             <button class = "btn btn-danger float-right" type = "submit">Order</button>
@@ -101,6 +99,96 @@
 </div>
 </div>
 </div>
+<!-- Order Modal Form PizzaLand-->
+  <div class="modal fade" id="pizzaModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form role = "form" class="burgerForm">
+            <table class = "responsive">
+              <tr class="form-group">
+                <tr class="form-group">
+                  <td>Cheese Pizza $10</td>
+                  <td>Quantity</td>
+                  <td><input  class = "form-control" type="text" id="cpizza" name = "cpizza" ></td>
+                </tr>
+                <tr class="form-group">
+                  <tr class="form-group">
+                    <td>Vegi Pizza $10</td>
+                    <td>Quantity</td>
+                    <td><input  class = "form-control" type="text" id="vpizza" name = "vpizza" ></td>
+                  </tr>
+                <tr class="form-group">
+                  <td>Coke $5</td>
+                  <td>Quantity</td>
+                  <td><input  class = "form-control" type="text" id="coke" name = "coke" ></td>
+                </tr>
+                <tr class="form-group">
+                  <td>Total Price</td>
+            </table>
+
+            <button class = "btn btn-danger float-right" type = "submit">Order</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </form>
+
+
+  </div>
+</div>
+</div>
+</div>
+<!-- Order Modal Form PastaPalace-->
+<div class="modal fade" id="pastaModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Order</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form role = "form" class="pastaForm">
+          <table class = "responsive">
+            <tr class="form-group">
+              <tr class="form-group">
+                <td>Marinara $10</td>
+                <td>Quantity</td>
+                <td><input  class = "form-control" type="text" id="mname" name = "mname" ></td>
+              </tr>
+              <tr class="form-group">
+                <td>Carbonara $10</td>
+                <td>Quantity</td>
+                <td><input  class = "form-control" type="text" id="cname" name = "cname" ></td>
+              </tr>
+              <tr class="form-group">
+                <td>Coke $5</td>
+                <td>Quantity</td>
+                <td><input  class = "form-control" type="text" id="coke" name = "coke" ></td>
+              </tr>
+              <tr class="form-group">
+                <td>Garlic Bread $5</td>
+                <td>Quantity</td>
+                <td><input  class = "form-control" type="text" id="gbread" name = "gbread" ></td>
+              </tr>
+              <tr class="form-group">
+                <td>Total Price</td>
+          </table>
+
+          <button class = "btn btn-danger float-right" type = "submit">Order</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
+
+
+</div>
+</div>
+</div>
+</div>
 
   <div class = "order">
     <div class="panel">
@@ -109,7 +197,7 @@
             <img src="img/Burger.jpg" alt="" class="food-img">
             <h2 class="food-header">Burger Town</h2>
             <p>Eat clean. Stay fit and have burger to stay sane! </p>
-            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#orderModel" role="button"
+            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#burgerModel" role="button"
             >ORDER</a>
         </div>
 
@@ -117,7 +205,7 @@
             <img src="img/pizza.jpg" alt="" class="food-img">
             <h2 class="food-header">PizzaLand</h2>
             <p>A slice a day keeps the sad away!</p>
-            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#orderModel" role="button"
+            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#pizzaModel" role="button"
             >ORDER</a>
         </div>
 
@@ -125,7 +213,7 @@
             <img src="img/pasta.jpg" alt="" class="food-img">
             <h2 class="food-header">PastaPalace</h2>
             <p>Pasta la vista baby!</p>
-            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#orderModel" role="button"
+            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#pastaModel" role="button"
             >ORDER</a>
         </div>
 
