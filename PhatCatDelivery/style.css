@@ -21,7 +21,7 @@ minimum height of the body is 100vh.
 */
 
 .order {
-  background-color: blue;
+  background-color: rgb(211, 211, 216);
   justify-content: center;
 	display: flex;
   align-items: center;
@@ -40,10 +40,10 @@ All texts are displayed in uppercases
 */
 
 .panel {
-  background-color: white;
+  background-color: rgb(231, 225, 225);
   border-radius: 10px;
   padding: 15px 25px;
-  max-width: 960px;
+  max-width: 1500x;
   min-height: 450px;
   overflow: hidden;
   display: flex;
@@ -75,14 +75,14 @@ Maximum width size is 100%
 */
 .food-img {
   float: left;
-  width: 250px;
+  width: 100%;
   height: 250px;
   object-fit: cover;
   overflow: hidden;
 }
 
 .pricing-plan {
-  margin-left: 50px;
+  margin-left: 40px;
   border: 2px solid black;
 }
 
@@ -174,6 +174,9 @@ Top and bottom margins are 25px.
 left and right margins are 0.
 it is displayed as inline-block.
 */
+.pricing-plan a {
+  margin-top: 10px;
+}
 
 .order-button {
   border: 1px solid #9dd1ff;
