@@ -61,8 +61,8 @@
           <td>Access</td>
           <td><select  class = "form-control"  name="access" id="access" >
             <option value = "" hidden disabled selected = "selected">Select access level</option>
-            <option class = "form-control" value="1">1</option>
-            <option  class = "form-control" value="2">2</option>
+            <option class = "form-control" value="1">Customer</option>
+            <option  class = "form-control" value="2">Staff</option>
 
           </select>
         </td>
