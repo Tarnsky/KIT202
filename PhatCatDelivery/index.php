@@ -485,7 +485,7 @@ include ('session.php');
                 <tr class="form-group">
                   <td>Pie $7</td>
                   <td>Quantity</td>
-                  <td><input  class = "form-control" type="text" id="hname" name = "hname" ></td>
+                  <td><input  class = "form-control" type="text" id="pie" name = "pie" ></td>
                 </tr>
                 <tr class="form-group">
                   <td>Coke $5</td>
