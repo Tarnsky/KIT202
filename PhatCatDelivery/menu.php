@@ -1,7 +1,7 @@
 <?php
 include ('db_conn.php');
 include ('session.php');
-include ('cartFunctions.php');
+include ('cartfunctions.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
