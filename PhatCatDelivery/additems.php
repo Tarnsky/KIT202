@@ -7,7 +7,7 @@ include ('cartFunctions.php');
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>items</title>
+    <title>additems</title>
     <link rel="stylesheet" href="style.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -25,10 +25,7 @@ include ('cartFunctions.php');
   </head>
   <body>
 <?php 
-    display_items($_GET['category']);
-    if(isset($_GET['added'])){
-        addstock($_GET['added'],$_SESSION['user']);
-    }
+    display_category();
 ?>
     </body>
 <!-- Footer -->
