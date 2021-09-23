@@ -1,3 +1,5 @@
+<!-- This page will allow us to add a new restuarnt -->
+
 <?php
 include ('db_conn.php');
 include ('session.php');

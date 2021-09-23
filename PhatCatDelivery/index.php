@@ -1,3 +1,4 @@
+<!-- need to update all the header on all pages to have login stuff -->
 <?php
 include ('db_conn.php');
 include ('session.php');
@@ -108,39 +109,8 @@ include ('session.php');
     <div class="panel">
       <div class="pricing-plan">
         <img src="img/Burger.jpg" alt="" class="food-img">
-        <h2 class="food-header">Burger Town</h2>
-        <p>Eat clean. Stay fit and have burger to stay sane! </p>
-        <p>4km Away </p>
+        <h2 class="food-header">Order now</h2>
         <a class="btn btn-outline-light btn-lg" href="menu.php" data-toggle="modal" data-target="#burgerModel" role="button">ORDER</a>
-      </div>
-      <div class="pricing-plan">
-        <img src="img/pizza.jpg" alt="" class="food-img">
-        <h2 class="food-header">PizzaLand</h2>
-        <p>A slice a day keeps the sad away!</p>
-        <p>9km Away </p>
-        <a class="btn btn-outline-light btn-lg" href="menu.php" data-toggle="modal" data-target="#pizzaModel" role="button">ORDER</a>
-      </div>
-      <div class="pricing-plan">
-        <img src="img/pasta.jpg" alt="" class="food-img">
-        <h2 class="food-header">PastaPalace</h2>
-        <p>Pasta la vista baby!</p>
-        <p>4km Away </p>
-        <a class="btn btn-outline-light btn-lg" href="menu.php" data-toggle="modal" data-target="#pastaModel" role="button">ORDER</a>
-      </div>
-      <div class="pricing-plan">
-        <img src="img/fish-food.png" alt="" class="food-img">
-        <h2 class="food-header">Sea you soon</h2>
-        <p>It's seafood time!</p>
-        <p>1km Away </p>
-        <a class="btn btn-outline-light btn-lg" href="menu.php" data-toggle="modal" data-target="#fishModel" role="button">ORDER</a>
-      </div>
-      <div class="pricing-plan">
-        <img src="img/food-villa.jpg" alt="" class="food-img">
-        <h2 class="food-header">Food Villa</h2>
-        <p>House of delicious food!</p>
-        <p>6km Away </p>
-        <a class="btn btn-outline-light btn-lg" href="menu.php" data-toggle="modal" data-target="#villaModel" role="button"
-        >ORDER</a>
       </div>
     </div>
   </div>
@@ -178,7 +148,7 @@ include ('session.php');
           </button>
         </div>
         <div class="modal-body">
-          <form role = "form" class="regiForm">
+          <form role = "form" class="regiForm" action = "register_engine.php" method = "post">
             <table class = "responsive">
               <tr class="form-group">
                 <td style = "width: 40%"><label for="fname">First Name</label></td>
@@ -204,6 +174,9 @@ include ('session.php');
                 <td>Confirm Password</td>
                 <td><input class = "form-control"  type="password" id="confirm_password" name = "confirm_password" required ></td>
               </tr>
+              <tr class="form-group">
+          </td>
+        </tr>
             </table>
             <p><span id = "msg"></span></p>
 
@@ -242,8 +215,8 @@ include ('session.php');
                 <td><input type="email" id="email" required></td>
               </tr>
               <tr>
-                <td>Restaurant Address</td>
-                <td><input type="address" id="address" required></td>
+                <td>Restaurant name</td>
+                <td><input type="text" id="Rname" required></td>
               </tr>
               <tr>
                   <td>Restaurant Verification code</td>
@@ -257,6 +230,12 @@ include ('session.php');
                 <td>Confirm Password</td>
                 <td><input type="password" id="confirm_password" required></td>
               </tr>
+              <td>Access</td>
+            <td><select  class = "form-control"  name="access" id="access" >
+              <option value = "" hidden disabled selected = "selected">Select your position</option>
+              <option class = "form-control" value="1">Manager</option>
+              <option  class = "form-control" value="2">Staff</option>
+            </select>
             </table>
             <button class = "btn btn-danger float-right" type = "submit">Register</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -266,36 +245,6 @@ include ('session.php');
     </div>
   </div>
 
-  <!-- login Modal Form-->
-
-  <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Phatcat Login</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form role = "form" class="regiForm">
-            <table class = "responsive">
-              <tr class="form-group">
-                <td>Email</td>
-                <td><input  class = "form-control" type="email" id="email" name ="email" required></td>
-              </tr>
-              <tr class="form-group">
-                <td>Password</td>
-                <td><input class = "form-control"  type="password" id="password" name = "password" required pattern = "(?=.*\d)(?=.*[A-Za-z]).{6,8}" title = "Must contain at least one number, one letters and between 6 and 8 characters"></td>
-              </tr>
-            </table>
-            <button class = "btn btn-danger float-right" type = "submit">Login</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
 <!-- Footer -->
 

@@ -22,46 +22,21 @@
             </tr>
 
             <tr class="form-group">
-              <td>Gender</td>
-              <td><input  type="radio" id="edit_gender" name = "edit_gender" value = "female" >Female
-                <input   type="radio" id="edit_gender" name = "edit_gender" value = "male">Male
-                <input   type="radio" id="edit_gender" name = "edit_gender" value = "other">Other
-              </td>
+              <td>Email</td>
+              <td><input  class = "form-control" type="email" id="edit_email" name ="edit_email" ></td>
             </tr>
 
-            <tr class="form-group">
-              <td>Select a race</td>
-              <td><select  class = "form-control" name="edit_race" id="edit_race" >
-                <option  class = "form-control" value = "" hidden disabled selected = "selected">Select your race</option>
-                <option  class = "form-control" value="5k">Fun Run 5k</option>
-                <option  class = "form-control" value="half">Half Marathon</option>
-                <option  class = "form-control"  value="full">Full Marathon</option>
-
-              </select>
-            </td>
-          </tr>
-
-          <tr class="form-group">
-            <td>Email</td>
-            <td><input  class = "form-control" type="email" id="edit_email" name ="edit_email" ></td>
-          </tr>
-
-          <tr class="form-group">
-            <td>Age Group</td>
-            <td><select  class = "form-control"  name="edit_division" id="edit_division" >
-              <option value = "" hidden disabled selected = "selected">Select your age group</option>
-              <option class = "form-control" value="kids">under 18</option>
-              <option  class = "form-control" value="ya">18-30</option>
-              <option  class = "form-control"  value="adults">30-50</option>
-              <option  class = "form-control" value="seniors">50+</option>
-            </select>
-          </td>
-        </tr>
+            <tr>
+                <td>Restaurant name</td>
+                <td><input class = "form-control" type="text" id="edit_Rname" name ="edit_Rname"required></td>
+              </tr>
+            <tr>
+ 
         <tr class="form-group">
           <td>Access</td>
           <td><select  class = "form-control"  name="access" id="access" >
-            <option value = "" hidden disabled selected = "selected">Select access level</option>
-            <option class = "form-control" value="1">Customer</option>
+            <option value = "" hidden disabled selected = "selected">Select your position</option>
+            <option class = "form-control" value="1">Manager</option>
             <option  class = "form-control" value="2">Staff</option>
 
           </select>
@@ -101,10 +76,8 @@
           $('#user_id').val(data.id);
           $('#fname').val(data.firstname);
           $('#lname').val(data.lastname);
-          $('#gender').val(data.gender);
-          $('#race').val(data.race);
           $('#email').val(data.email);
-          $('#division').val(data.age_group);
+          $('#Rname').val(data.Rname);
           $('#access').val(data.access);
 
 

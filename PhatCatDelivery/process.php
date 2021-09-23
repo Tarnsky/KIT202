@@ -5,7 +5,7 @@ if(isset($_POST['edit']))
 {
   $id = $_POST['edit'];
   $update = true;
-     $query = "SELECT * FROM participant WHERE id = '$id'";
+     $query = "SELECT * FROM customer WHERE id = '$id'";
      $result = mysqli_query($mysqli, $query);
      $row = mysqli_fetch_array($result);
      echo json_encode($row);
@@ -17,7 +17,7 @@ if(isset($_POST['update']))
   $id = $_POST['user_id'];
   $firstname=$_POST['edit_fname'];
   $lastname =$_POST['edit_lname'];
-  $gender =$_POST['edit_gender'];
+  $address =$_POST['edit_address'];
   $race = $_POST['edit_race'];
   $email = $_POST['edit_email'];
 

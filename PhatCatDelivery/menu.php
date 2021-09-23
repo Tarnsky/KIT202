@@ -1,3 +1,4 @@
+<!-- This will display all resturants -->
 <?php
 include ('db_conn.php');
 include ('session.php');

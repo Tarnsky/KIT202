@@ -10,10 +10,7 @@ $(document).ready(function(){
     } else if ($('#lname').val() ==""){
       $('#msg').html('Please enter your last name').css('color', 'red');
       return false;
-      //Check the selection of race
-    } else if ($('#race').val() ==""){
-      $('#msg').html('Please select the race you want to participate in').css('color', 'red');
-      return false;
+      //Check the email field
     }  else if ($('#email').val() ==""){
       $('#msg').html('Please enter your email').css('color', 'red');
       return false;
@@ -27,10 +24,6 @@ $(document).ready(function(){
       //Check whether the retyped password matches the password
     } else if ($('#password').val()!=$('#confirm_password').val()){
       $('#msg').html('Password do not match').css('color', 'red');
-      return false;
-      //Check the email field
-    } else if ($('#division').val() ==""){
-      $('#msg').html('Please select your age group').css('color', 'red');
       return false;
       //Check whether a user agreed or not
     } else {
