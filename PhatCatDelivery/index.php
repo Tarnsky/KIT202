@@ -168,11 +168,11 @@ include ('session.php');
               </tr>
               <tr>
                 <td>Address</td>
-                <td><input type="address" id="address" required></td>
+                <td><input class = "form-control" type="text" id="address" name ="address" required></td>
               </tr>
                 <tr>
                     <td>phone number</td>
-                    <td><input type=tel id="phone_number" required></td>
+                    <td><input class = "form-control" type="number" id="phone_number" name="phone_number" required></td>
                 </tr>
               <tr class="form-group">
                 <td>Password</td>
