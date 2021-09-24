@@ -170,6 +170,10 @@ include ('session.php');
                 <td>Address</td>
                 <td><input type="address" id="address" required></td>
               </tr>
+                <tr>
+                    <td>phone number</td>
+                    <td><input type=tel id="phone_number" required></td>
+                </tr>
               <tr class="form-group">
                 <td>Password</td>
                 <td><input class = "form-control"  type="password" id="password" name = "password" required pattern = "(?=.*\d)(?=.*[A-Za-z]).{6,8}" title = "Must contain at least one number, one letters and between 6 and 8 characters"></td>

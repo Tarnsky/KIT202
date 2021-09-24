@@ -3,16 +3,16 @@
 include('db_conn.php'); //db connection
 
 if (isset($_POST['register'])){
-  $firstname=$_POST['fname'];
-  $lastname =$_POST['lname'];
-  $gender =$_POST['gender'];
-  $race = $_POST['race'];
+  $first_name=$_POST['fname'];
+  $last_name =$_POST['lname'];
   $email = $_POST['email'];
+  $address =$_POST['address'];
+  $phone_number=$_POST['phone_number'];
   $password = $_POST['password'];
-  $age = $_POST['division'];
 
 
-  $register = "INSERT INTO participant (`firstname`, `lastname`, `gender`,  `race`,`email`, `password`, `age_group`) VALUES ('$firstname','$lastname','$gender','$race','$email','$password','$age')";
+
+  $register = "INSERT INTO customers (`first_name`, `last_name`, `email`,  `address`,`phone_number`, `password`) VALUES ('$first_name','$last_name','$email','$address','$phone_number','$password')";
 
 
   $mysqli->query($register);
