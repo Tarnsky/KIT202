@@ -95,8 +95,12 @@ include ('session.php');
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">
           <h1 class="mb-3">Phatcat Delivery</h1>
-          <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
-          <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#LoginModal" role="button">SIGN IN</a>
+            <?php if ($session_id == ""){ ?>
+            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
+            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#loginModal" role="button">SIGN IN</a>
+            <?php } else {?>
+            <a class="btn btn-outline-light btn-lg" href="logout.php" role="button">LOGOUT</a>
+            <?php  }?>
         </div>
       </div>
     </div>
