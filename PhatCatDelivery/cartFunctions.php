@@ -46,7 +46,7 @@ function display_items($category){
         }
         echo "</table>";
     }else{
-        echo "Sorry, no items available"
+        echo "Sorry, no items available";
     }
 }
 function addstock($item_id, $username){
@@ -104,7 +104,7 @@ function display_cart($cart_id){
             $result = $mysqli->query($query);
             while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
                 if( !$printKey ) {
-                    print( "<tr>\r\n" )
+                    print( "<tr>\r\n" );
                     print( "<td></td>" );
                     foreach( $arr as $key->$value) {
                         printf( "<td>%s</td>\r\n",$key);
