@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tb_cart` (
-  `cart_id` int(11) DEFAULT NULL
-  `cust_id` varchar(255) DEFAULT NULL PRIMARY KEY,
+  `cart_id` int(11) DEFAULT NULL,
+  `cust_id` varchar(255) DEFAULT NULL,
   `paid` varchar(1) DEFAULT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -67,7 +67,7 @@ INSERT INTO `tb_customers` (`customer_id`, `first_name`, `last_name`, `email`, `
 --
 
 CREATE TABLE `tb_items` (
-  `item_code` int(11) NOT NULL PRIMARY KEY,
+  `item_code` int(11) NOT NULL,
   `item_price` int(11) DEFAULT NULL,
   `ingredients` varchar(255) DEFAULT NULL,
   `tb_restaurant` varchar(255) DEFAULT NULL
