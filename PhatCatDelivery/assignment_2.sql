@@ -70,8 +70,9 @@ INSERT INTO `tb_customers` (`customer_id`, `first_name`, `last_name`, `email`, `
 
 CREATE TABLE `tb_items` (
   `item_code` int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  `item_name` varchar(255) DEFAULT NULL,
   `item_price` int(11) DEFAULT NULL,
-  `ingredients` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `tb_restaurant` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

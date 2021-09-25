@@ -9,7 +9,7 @@ function display_tb_restaurant() {
     if( $row_cnt = $result->num_row >= 1 ) {
         echo "Choose a tb_restaurant:<ul>";
         while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
-            echo "<li><a href=item.php?
+            echo "<li><a href=items.php?
             tb_restaurant=".$row['tb_restaurant'].">".$row['tb_restaurant']."</li>";
         }
         echo "</ul>";
@@ -40,7 +40,7 @@ function display_items($tb_restaurant){
             foreach( $arr as $key=>$value) {
                 printf( "<td>%s</td>\r\n",$arr[ $key ]);
             }
-            print( "<td><a href='item.php?
+            print( "<td><a href='items.php?
             tb_restaurant=$tb_restaurant&added=".$arr['item_id']."'>add</a></td>");
             print( "</tr>\r\n" ); 
         }
@@ -49,6 +49,7 @@ function display_items($tb_restaurant){
         echo "Sorry, no items available";
     }
 }
+
 function addstock($item_id, $username){
     global $mysqli;
     $cart_id=checkCart($username);

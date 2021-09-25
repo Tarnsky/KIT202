@@ -25,10 +25,10 @@ include ('cartfunctions.php');
       <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
   </head>
   <body>
-<?php 
-    display_restaurant();
+<?php
+display_tb_restaurant();
 ?>
-    </body>
+  </body>
 <!-- Footer -->
 
   <div class="footer">

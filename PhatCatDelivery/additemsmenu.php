@@ -1,3 +1,4 @@
+<!-- This will display all restaurants -->
 <?php
 include ('db_conn.php');
 include ('session.php');
@@ -7,7 +8,7 @@ include ('cartfunctions.php');
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>items</title>
+    <title>menu</title>
     <link rel="stylesheet" href="style.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -24,10 +25,22 @@ include ('cartfunctions.php');
       <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
   </head>
   <body>
-<?php 
-display_items($_GET['tb_restaurant']);
+<?php
+    global $mysqli;
+    $query = "SELECT DISTINCT tb_restaurant FROM `tb_items`";
+    $result = $mysqli->query($query);
+    if( $row_cnt = $result->num_row >= 1 ) {
+        echo "Choose a tb_restaurant:<ul>";
+        while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
+            echo "<li><a href=additems.php?
+            tb_restaurant=".$row['tb_restaurant'].">".$row['tb_restaurant']."</li>";
+        }
+        echo "</ul>";
+    }else{
+        echo "Sorry no items available";
+    }
 ?>
-    </body>
+  </body>
 <!-- Footer -->
 
   <div class="footer">
