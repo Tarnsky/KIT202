@@ -25,10 +25,17 @@ include ('cartfunctions.php');
       <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
   </head>
   <body>
-<?php 
-    display_tb_restaurant();
-?>
-    </body>
+  <form>
+    <input type="text" name="item" placeholder="Itemname">
+    <input type="text" name="price" placeholder="Itemprice">
+    <input type="text" name="ingredients" placeholder="ingredients">
+    <input type="text" name="restaurant" placeholder="restaurant">
+  </form>
+  </body>
+
+  <?php
+    $sql = "INSERT INTO tb_items (item_code, item_price, ingredients, tb_restaurant) VALUES ();";
+  ?>
 <!-- Footer -->
 
   <div class="footer">
