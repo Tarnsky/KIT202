@@ -26,7 +26,7 @@ include ('cartfunctions.php');
   </head>
   <body>
 <?php 
-    display_category();
+    display_tb_restaurant();
 ?>
     </body>
 <!-- Footer -->

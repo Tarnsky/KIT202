@@ -114,7 +114,7 @@ include ('session.php');
       <div class="pricing-plan">
         <img src="img/Burger.jpg" alt="" class="food-img">
         <h2 class="food-header">Order now</h2>
-        <a class="btn btn-outline-light btn-lg" href="menu.php" data-toggle="modal" data-target="#burgerModel" role="button">ORDER</a>
+        <a class="nav-link" aria-current="page" href="menu.php">ORDER</a>
       </div>
     </div>
   </div>

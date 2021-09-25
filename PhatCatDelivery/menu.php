@@ -1,4 +1,4 @@
-<!-- This will display all resturants -->
+<!-- This will display all restaurants -->
 <?php
 include ('db_conn.php');
 include ('session.php');
@@ -26,7 +26,7 @@ include ('cartfunctions.php');
   </head>
   <body>
 <?php 
-    display_category();
+    display_restaurant();
 ?>
     </body>
 <!-- Footer -->

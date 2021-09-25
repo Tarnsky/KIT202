@@ -10,7 +10,7 @@ $user_password = trim($_POST['login_password']);
     $encrypted_password = crypt($user_password, $salt);
 
 
-$sql ="SELECT * FROM customers WHERE email='$user_email'";
+$sql ="SELECT * FROM tb_customers WHERE email='$user_email'";
 $result = $mysqli->query($sql);
 //convert the result to array (the key of the array will be the column names of the table)
 $row=$result->fetch_array(MYSQLI_ASSOC);

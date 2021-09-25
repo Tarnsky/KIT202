@@ -25,7 +25,7 @@ include ('cartfunctions.php');
   </head>
   <body>
 <?php 
-    display_items($_GET['category']);
+    display_items($_GET['restaurant']);
     if(isset($_GET['added'])){
         addstock($_GET['added'],$_SESSION['user']);
     }
