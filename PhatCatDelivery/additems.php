@@ -2,7 +2,7 @@
 <?php
 include ('db_conn.php');
 include ('session.php');
-include ('cartfunctions.php');
+
 
 
 ?>
@@ -106,36 +106,20 @@ include ('cartfunctions.php');
     </div>
   </div>
 </header>
-<?php
- global $mysqli;
- $query = "SELECT item_id, ingredients, item_price, tb_restaurant FROM `tb_items` WHERE `tb_restaurant` LIKE '$tb_restaurant'"; 
- $result = $mysqli->query($query);
- $printKey = false;
- if( $row_cnt = $result->num_row >= 1 ) {
-     echo "<form method='post'>";
-     echo "<table border='1'>";
-     while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
-         if( !$printKey ) {
-             print( "<tr>\r\n" );
-             foreach( $arr as $key=>$value) {
-                 printf( "<td>%s</td>\r\n",$key);
-             }
-             print( "<td></td>");
-             print( "</tr>\r\n" );
-             $printKey = true;
-         }
-         print( "<tr>\r\n" );
-         foreach( $arr as $key=>$value) {
-             printf( "<td>%s</td>\r\n",$arr[ $key ]);
-         }
-         print( "</tr>\r\n" ); 
-     }
-     echo "</table>";
- }else{
-     echo "Sorry, no items available";
- }
-?>
+
   <body>
+    <?php
+    global $mysqli;
+    $query = "SELECT item_name, ingredients, item_price, tb_restaurant FROM `tb_items`;"; 
+    $result = $mysqli->query($query);
+    $resultCheck = mysqli_num_rows($result);
+    if($resultCheck > 0){
+      while($row = mysqli_fetch_assoc($result)) {
+        echo $row['item_name'] . "<br>" . $row['ingredients']. "<br>" . $row['item_price']. "<br>" . $row['tb_restaurant'];
+      }
+    }
+    ?>
+
   <form action="processitem.php" method="POST"> 
     <input type="text" name="item" placeholder="Itemname">
     <br>
