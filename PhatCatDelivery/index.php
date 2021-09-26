@@ -1,4 +1,4 @@
-<!-- need to update all the header on all pages to have login stuff -->
+
 <?php
 include ('db_conn.php');
 include ('session.php');

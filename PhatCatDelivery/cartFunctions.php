@@ -4,13 +4,13 @@ include ('session.php');
 
 function display_restaurant() {
     global $mysqli;
-    $query = "SELECT DISTINCT restaurant FROM `tb_items`";
+    $query = "SELECT DISTINCT restaurant_id FROM `tb_items`";
     $result = $mysqli->query($query);
     if( $row_cnt = $result->num_row >= 1 ) {
         echo "Choose a restaurant:<ul>";
         while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
             echo "<li><a href=items.php?
-            restaurant=".$row['restaurant'].">".$row['restaurant']."</li>";
+            restaurant_id=".$row['restaurant_id'].">".$row['restaurant_id']."</li>";
         }
         echo "</ul>";
     }else{
@@ -20,7 +20,7 @@ function display_restaurant() {
 
 function display_items($tb_restaurant){
     global $mysqli;
-    $query = "SELECT item_id, description, item_price, restaurant FROM `tb_items` WHERE `restaurant` LIKE '$restaurant'"; 
+    $query = "SELECT item_id, ingredients, item_price, restaurant_id FROM `tb_items` WHERE `restaurant_id` LIKE '$restaurant_id'"; 
     $result = $mysqli->query($query);
     $printKey = false;
     if( $row_cnt = $result->num_row >= 1 ) {
