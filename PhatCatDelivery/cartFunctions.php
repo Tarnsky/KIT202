@@ -20,7 +20,7 @@ function display_restaurant() {
 
 function display_items($tb_restaurant){
     global $mysqli;
-    $query = "SELECT item_id, ingredients, item_price, restaurant FROM `tb_items` WHERE `restaurant` LIKE '$restaurant'"; 
+    $query = "SELECT item_id, description, item_price, restaurant FROM `tb_items` WHERE `restaurant` LIKE '$restaurant'"; 
     $result = $mysqli->query($query);
     $printKey = false;
     if( $row_cnt = $result->num_row >= 1 ) {

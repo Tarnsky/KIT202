@@ -109,12 +109,12 @@ include ('db_conn.php');
   <body>
     <?php
     global $mysqli;
-    $query = "SELECT item_name, ingredients, item_price, tb_restaurant FROM `tb_items`;"; 
+    $query = "SELECT item_name, description, item_price, tb_restaurant FROM `tb_items`;"; 
     $result = $mysqli->query($query);
     $resultCheck = mysqli_num_rows($result);
     if($resultCheck > 0){
       while($row = mysqli_fetch_assoc($result)) {
-        echo $row['item_name'] . "<br>" . $row['ingredients']. "<br>" . $row['item_price']. "<br>" . $row['tb_restaurant'];
+        echo $row['item_name'] . "<br>" . $row['description']. "<br>" . $row['item_price']. "<br>" . $row['tb_restaurant'];
       }
     }
     ?>
