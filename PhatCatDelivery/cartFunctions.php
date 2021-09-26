@@ -4,13 +4,13 @@ include ('session.php');
 
 function display_tb_restaurant() {
     global $mysqli;
-    $query = "SELECT DISTINCT tb_restaurant FROM `tb_items`";
+    $query = "SELECT DISTINCT restaurant FROM `tb_items`";
     $result = $mysqli->query($query);
     if( $row_cnt = $result->num_row >= 1 ) {
-        echo "Choose a tb_restaurant:<ul>";
+        echo "Choose a restaurant:<ul>";
         while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
             echo "<li><a href=items.php?
-            tb_restaurant=".$row['tb_restaurant'].">".$row['tb_restaurant']."</li>";
+            restaurant=".$row['restaurant'].">".$row['tb_restarestauranturant']."</li>";
         }
         echo "</ul>";
     }else{
@@ -20,7 +20,7 @@ function display_tb_restaurant() {
 
 function display_items($tb_restaurant){
     global $mysqli;
-    $query = "SELECT item_id, ingredients, item_price, tb_restaurant FROM `tb_items` WHERE `tb_restaurant` LIKE '$tb_restaurant'"; 
+    $query = "SELECT item_id, ingredients, item_price, restaurant FROM `tb_items` WHERE `restaurant` LIKE '$restaurant'"; 
     $result = $mysqli->query($query);
     $printKey = false;
     if( $row_cnt = $result->num_row >= 1 ) {
@@ -100,7 +100,7 @@ function display_cart($cart_id){
         while( $row = $item_result->fetch_array(MYSQLI_ASSOC)) {
             $item_id=$row['item_id'];
             $amount=$row['ordered_amount'];
-            $query = "SELECT item_id, ingredients, item_price, categoty FROM `tb_items` WHERE `item_id` 
+            $query = "SELECT item_id, description, item_price, restaurant FROM `tb_items` WHERE `item_id` 
             = $item_id";
             $result = $mysqli->query($query);
             while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
