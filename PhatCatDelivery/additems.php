@@ -1,7 +1,6 @@
 <!-- This page should allow us to add food items -->
 <?php
 include ('db_conn.php');
-include ('session.php');
 
 
 

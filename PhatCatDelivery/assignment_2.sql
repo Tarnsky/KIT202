@@ -50,7 +50,7 @@ CREATE TABLE `tb_customers` (
   `mobile_number` int(11) NOT NULL,
   `address` varchar(255) NOT NULL,
   `account_balance` int(11) DEFAULT NULL,
-  `total_orders` int(11) DEFAULT NULL,
+  `total_orders` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
