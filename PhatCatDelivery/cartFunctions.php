@@ -2,7 +2,7 @@
 include ('db_conn.php');
 include ('session.php');
 
-function display_tb_restaurant() {
+function display_restaurant() {
     global $mysqli;
     $query = "SELECT DISTINCT restaurant FROM `tb_items`";
     $result = $mysqli->query($query);

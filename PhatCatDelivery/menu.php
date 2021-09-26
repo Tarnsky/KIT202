@@ -104,7 +104,7 @@ include ('cartfunctions.php');
 </header>
   <body>
 <?php
-display_tb_restaurant();
+display_restaurant();
 ?>
   </body>
 <!-- Footer -->
