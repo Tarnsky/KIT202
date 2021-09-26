@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 09:54 AM
+-- Generation Time: Sep 26, 2021 at 10:18 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -58,7 +58,7 @@ CREATE TABLE `tb_customers` (
 --
 
 INSERT INTO `tb_customers` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `card_info`, `age`, `mobile_number`, `address`, `account_balance`, `access`) VALUES
-(1, 'leigh', 'beeton', 'leigh@gmail.com', 'Beeton1', '123456', 22, 412444575, '1 dally st mowbray', 55, 0);
+(1, 'leigh', 'beeton', 'leigh@gmail.com', '123456', '123456', 22, 412444575, '1 dally st mowbray', 55, 3);
 
 -- --------------------------------------------------------
 
