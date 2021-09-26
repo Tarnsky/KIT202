@@ -25,9 +25,9 @@ include ('db_conn.php');
 
       <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
   </head>
-    <!-- Navbar -->
+  <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"

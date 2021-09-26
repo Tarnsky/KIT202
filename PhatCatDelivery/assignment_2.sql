@@ -45,8 +45,6 @@ CREATE TABLE `tb_customers` (
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `card_info` varchar(255) DEFAULT NULL,
-  `age` int(11) NOT NULL,
   `mobile_number` int(11) NOT NULL,
   `address` varchar(255) NOT NULL,
   `account_balance` int(11) DEFAULT NULL,
@@ -73,7 +71,7 @@ CREATE TABLE `tb_items` (
   `item_name` varchar(255) DEFAULT NULL,
   `item_price` int(11) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `tb_restaurant` varchar(255) DEFAULT NULL
+  `restaurant` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

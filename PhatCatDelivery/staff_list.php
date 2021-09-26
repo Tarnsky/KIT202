@@ -231,19 +231,6 @@ if($session_id == ""){
               <td><input class = "form-control"  type="password" id="confirm_password" name = "confirm_password"></td>
             </tr>
 
-            <tr class="form-group">
-              <td>Age Group</td>
-              <td><select  class = "form-control"  name="division" id="division" >
-                <option value = "" hidden disabled selected = "selected">Select your age group</option>
-                <option class = "form-control" value="kids">under 18</option>
-                <option  class = "form-control" value="ya">18-30</option>
-                <option  class = "form-control"  value="adults">30-50</option>
-                <option  class = "form-control" value="seniors">50+</option>
-              </select>
-            </td>
-          </tr>
-
-
         </table>
         <p><span id = "msg"></span></p>
 
