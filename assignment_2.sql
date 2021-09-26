@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 08:34 AM
+-- Generation Time: Sep 26, 2021 at 09:54 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -58,7 +58,7 @@ CREATE TABLE `tb_customers` (
 --
 
 INSERT INTO `tb_customers` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `card_info`, `age`, `mobile_number`, `address`, `account_balance`, `access`) VALUES
-(1, 'leigh', 'beeton', 'leigh', '1234', '123456', 22, 412444575, '1 dally st mowbray', 55, 0);
+(1, 'leigh', 'beeton', 'leigh@gmail.com', 'Beeton1', '123456', 22, 412444575, '1 dally st mowbray', 55, 0);
 
 -- --------------------------------------------------------
 
@@ -135,6 +135,14 @@ CREATE TABLE `tb_restaurant` (
   `order_no` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tb_restaurant`
+--
+
+INSERT INTO `tb_restaurant` (`restaurant_id`, `restaurant_name`, `address`, `business_code`, `open_hours`, `menu_no`, `order_no`) VALUES
+(1, 'temp_1', '12 sally st', 2432, NULL, 1, NULL),
+(2, 'temp_2', '34 fred st', 3421, NULL, 2, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -142,7 +150,7 @@ CREATE TABLE `tb_restaurant` (
 --
 
 CREATE TABLE `tb_restaurant_managers` (
-  `restaurant_managers_id` int(11) NOT NULL,
+  `restraunt_managers_id` int(11) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -247,7 +255,7 @@ ALTER TABLE `tb_orders`
 -- AUTO_INCREMENT for table `tb_restaurant`
 --
 ALTER TABLE `tb_restaurant`
-  MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_restaurant_managers`
