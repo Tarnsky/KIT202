@@ -10,7 +10,7 @@ function display_restaurant() {
         echo "Choose a restaurant:<ul>";
         while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
             echo "<li><a href=items.php?
-            restaurant=".$row['restaurant'].">".$row['tb_restarestauranturant']."</li>";
+            restaurant=".$row['restaurant'].">".$row['restaurant']."</li>";
         }
         echo "</ul>";
     }else{
