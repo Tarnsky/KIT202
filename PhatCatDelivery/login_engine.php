@@ -1,12 +1,12 @@
 <?php
-include('db_conn.php');
-include('session.php');
+include ('db_conn.php');
+include ('session.php');
 
 if(isset($_POST)){
 $user_email = trim($_POST['login_email']);
 $user_password = trim($_POST['login_password']);
     
-    $salt = "marathon";
+    $salt = "assignment_2";
     $encrypted_password = crypt($user_password, $salt);
 
 

@@ -1,4 +1,5 @@
-<!-- need to update all the header on all pages to have login stuff -->
+<!-- This page will allow us to add a new restuarnt -->
+
 <?php
 include ('db_conn.php');
 include ('session.php');
@@ -95,67 +96,30 @@ include ('session.php');
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">
           <h1 class="mb-3">Phatcat Delivery</h1>
-            <?php if ($session_id == ""){ ?>
-            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
-            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#loginModal" role="button">SIGN IN</a>
-            <?php } else {?>
-            <a class="btn btn-outline-light btn-lg" href="logout.php" role="button">LOGOUT</a>
-            <?php  }?>
+          <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
+          <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#LoginModal" role="button">SIGN IN</a>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Restaurants -->
-
-  <div class = "order">
-    <div class="panel">
-      <div class="pricing-plan">
-        <img src="img/Burger.jpg" alt="" class="food-img">
-        <h2 class="food-header">Order now</h2>
-        <a class="nav-link" aria-current="page" href="menu.php">ORDER</a>
-      </div>
-    </div>
-  </div>
-
-<!-- About -->
-
-  <div class="card-deck">
-    <div class="card">
-      <div class="card-body text-center">
-        <h5 class="card-title">What do we do? </h5>
-        <p class="card-text">Phatcat Delivery is an online food delivery app to help you order food from your favourite local restaurants and have it delivered to your door ASAP</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body text-center">
-        <img class = "img-responsive" src="img/phatcat2.png" alt="">
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body text-center">
-        <img class = "img-responsive" src="img/phatcat3.jpg" alt="">
-      </div>
-    </div>
-  </div>
-
   <!-- Registration Modal Form -->
 
-  <div class="modal fade" id="regiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="restaurantModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Phatcat registration</h5>
+          <h5 class="modal-title">Phatcat restaurant registration</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form role = "form" class="regiForm" action = "register_engine.php" method = "post">
+          <form role = "form" class="regiForm">
             <table class = "responsive">
               <tr class="form-group">
-                <td style = "width: 40%"><label for="fname">First Name</label></td>
+                <td style = "width: 40%"><label for="fname">Name</label></td>
                 <td><input class = "form-control" type="text" id="fname" name ="fname" required></td>
               </tr>
               <tr class="form-group">
@@ -168,12 +132,8 @@ include ('session.php');
               </tr>
               <tr>
                 <td>Address</td>
-                <td><input class = "form-control" type="text" id="address" name ="address" required></td>
+                <td><input type="address" id="address" required></td>
               </tr>
-                <tr>
-                    <td>phone number</td>
-                    <td><input class = "form-control" type="number" id="phone_number" name="phone_number" required></td>
-                </tr>
               <tr class="form-group">
                 <td>Password</td>
                 <td><input class = "form-control"  type="password" id="password" name = "password" required pattern = "(?=.*\d)(?=.*[A-Za-z]).{6,8}" title = "Must contain at least one number, one letters and between 6 and 8 characters"></td>
@@ -182,70 +142,10 @@ include ('session.php');
                 <td>Confirm Password</td>
                 <td><input class = "form-control"  type="password" id="confirm_password" name = "confirm_password" required ></td>
               </tr>
-              <tr class="form-group">
-          </td>
-        </tr>
             </table>
             <p><span id = "msg"></span></p>
 
             <button class = "btn btn-danger float-right" type = "submit" id = "register" name = "register">Register</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Partner registration Modal Form -->
-
-  <div class="modal fade" id="PartnerregiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Phatcat registration</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form role = "form" class="regiForm">
-            <table class = "responsive">
-              <tr>
-                <td>First Name</td>
-                <td><input type="text" id="fname" required></td>
-              </tr>
-              <tr>
-                <td>Last Name</td>
-                <td><input type="text" id="lname" required></td>
-              </tr>
-              <tr>
-                <td>Email</td>
-                <td><input type="email" id="email" required></td>
-              </tr>
-              <tr>
-                <td>Restaurant name</td>
-                <td><input type="text" id="Rname" required></td>
-              </tr>
-              <tr>
-                  <td>Restaurant Verification code</td>
-                  <td><input type="text" id="lname" required></td>
-                </tr>
-              <tr>
-                <td>Password</td>
-                <td><input type="password" id="password" required pattern = "(?=.*\d)(?=.*[A-Za-z]).{6,8}" title = "Must contain at least one number, one letters and between 6 and 8 characters"></td>
-              </tr>
-              <tr>
-                <td>Confirm Password</td>
-                <td><input type="password" id="confirm_password" required></td>
-              </tr>
-              <td>Access</td>
-            <td><select  class = "form-control"  name="access" id="access" >
-              <option value = "" hidden disabled selected = "selected">Select your position</option>
-              <option class = "form-control" value="1">Manager</option>
-              <option  class = "form-control" value="2">Staff</option>
-            </select>
-            </table>
-            <button class = "btn btn-danger float-right" type = "submit">Register</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </form>
         </div>
