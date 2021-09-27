@@ -10,9 +10,11 @@ if (isset($_POST['register'])){
   $phone_number=$_POST['phone_number'];
   $password = $_POST['password'];
 
+    $salt = "pizza";
+    $encrypted_password = crypt($password, $salt);
 
 
-  $register = "INSERT INTO tb_customers (`first_name`, `last_name`, `email`,  `address`,`phone_number`, `password`) VALUES ('$first_name','$last_name','$email','$address','$phone_number','$password')";
+  $register = "INSERT INTO tb_customers (`first_name`, `last_name`, `email`,  `address`,`mobile_number`, `password`) VALUES ('$first_name','$last_name','$email','$address','$phone_number','$encrypted_password')";
 
 
   $mysqli->query($register);

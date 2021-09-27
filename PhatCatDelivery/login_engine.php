@@ -6,7 +6,7 @@ if(isset($_POST)){
 $user_email = trim($_POST['login_email']);
 $user_password = trim($_POST['login_password']);
     
-    $salt = "assignment_2";
+    $salt = "pizza";
     $encrypted_password = crypt($user_password, $salt);
 
 
@@ -18,7 +18,7 @@ $row=$result->fetch_array(MYSQLI_ASSOC);
  if($row['email'] != $user_email ){
    echo "We cannot find your account in our system.";
  } else {
-   if($row['password']==$user_password) {
+   if($row['password']==$encrypted_password) {
 
      $_SESSION['session_id'] = $row['customer_id'];
      $_SESSION['session_user']=$row['first_name'];
