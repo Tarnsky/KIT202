@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 10:18 AM
+-- Generation Time: Sep 27, 2021 at 10:40 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -45,20 +45,21 @@ CREATE TABLE `tb_customers` (
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `card_info` varchar(255) DEFAULT NULL,
-  `age` int(11) NOT NULL,
   `mobile_number` int(11) NOT NULL,
   `address` varchar(255) NOT NULL,
   `account_balance` int(11) DEFAULT NULL,
-  `access` int(3) NOT NULL
+  `access` int(3) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_customers`
 --
 
-INSERT INTO `tb_customers` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `card_info`, `age`, `mobile_number`, `address`, `account_balance`, `access`) VALUES
-(1, 'leigh', 'beeton', 'leigh@gmail.com', '123456', '123456', 22, 412444575, '1 dally st mowbray', 55, 3);
+INSERT INTO `tb_customers` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `mobile_number`, `address`, `account_balance`, `access`) VALUES
+(1, 'leigh', 'beeton', 'leigh@gmail.com', '123456', 412444575, '1 dally st mowbray', 55, 3),
+(2, 'leigh', 'beeton', 'leighbeeton3@gmail.com', 'Beeton1', 497105575, '1 woodmans lane beaconfield tasmania', NULL, 1),
+(3, 'admin', 'admin', 'admin@gmail.com', 'piJd1fyUQ4gYI', 497105575, '1 woodmans lane beaconfield tasmania', NULL, 3),
+(4, 'customer', 'customer', 'customer@gmail.com', 'piJd1fyUQ4gYI', 497105575, 'test', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -237,7 +238,7 @@ ALTER TABLE `tb_cart`
 -- AUTO_INCREMENT for table `tb_customers`
 --
 ALTER TABLE `tb_customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_items`
