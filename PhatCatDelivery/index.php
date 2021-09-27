@@ -46,9 +46,11 @@ include ('session.php');
           <li class="nav-item active">
             <a class="nav-link" aria-current="page" href="index.php">Home</a>
           </li>
+            <?php if ($session_id == ""){ ?>
           <li class="nav-item">
             <a class="nav-link"  href="#" data-toggle="modal" data-target="#regiModal">Registration</a>
           </li>
+            <?php }?>
           <li class="nav-item">
             <a class="nav-link" href="account.html">Account</a>
           </li>
@@ -73,7 +75,6 @@ include ('session.php');
         <li class="nav-item">
           <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
         </li>
-  
       </ul>
       </div>
    <?php } else {?>
