@@ -1,7 +1,7 @@
 <?php
 include ('db_conn.php');
 include ('session.php');
-include ('cartfunctions.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -102,8 +102,10 @@ include ('cartfunctions.php');
   </div>
 </div>
 </header>
+
 <?php 
-display_items($_GET['tb_restaurant']);
+include('cartFunctions.php');
+display_items($_GET['restaurant_id']);
 ?>
     </body>
 <!-- Footer -->

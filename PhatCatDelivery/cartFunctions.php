@@ -1,52 +1,54 @@
 <?php 
 include ('db_conn.php');
-include ('session.php');
+
 
 function display_restaurant() {
-    global $mysqli;
-    $query = "SELECT DISTINCT restaurant FROM `tb_items`";
-    $result = $mysqli->query($query);
-    if( $row_cnt = $result->num_row >= 1 ) {
-        echo "Choose a restaurant:<ul>";
-        while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
-            echo "<li><a href=items.php?
-            restaurant=".$row['restaurant'].">".$row['restaurant']."</li>";
-        }
-        echo "</ul>";
-    }else{
-        echo "Sorry no items available";
+//displays all restaurants 
+global $mysqli;
+$query = "SELECT DISTINCT restaurant_id FROM `tb_items`";
+$result = $mysqli->query($query);
+if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
+    echo "Choose a restaurant:<ul>";
+    while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
+        echo "<li><a href=items.php?
+        restaurant_id=".$row['restaurant_id'].">".$row['restaurant_id']."</li>";
     }
+    echo "</ul>";
+}else{
+    echo "Sorry no items available";
 }
 
-function display_items($tb_restaurant){
-    global $mysqli;
-    $query = "SELECT item_id, description, item_price, restaurant FROM `tb_items` WHERE `restaurant` LIKE '$restaurant'"; 
-    $result = $mysqli->query($query);
-    $printKey = false;
-    if( $row_cnt = $result->num_row >= 1 ) {
-        echo "<form method='post'>";
-        echo "<table border='1'>";
-        while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
-            if( !$printKey ) {
-                print( "<tr>\r\n" );
-                foreach( $arr as $key=>$value) {
-                    printf( "<td>%s</td>\r\n",$key);
-                }
-                print( "<td></td>");
-                print( "</tr>\r\n" );
-                $printKey = true;
-            }
+function display_items($restaurant_id){
+//Displays all items from the resturant selected in the menu.php
+$restaurant = $_GET['resturant_id'];
+global $mysqli;
+$query = "SELECT item_code, item_price, ingredients, item_name, restaurant_id FROM `tb_items` WHERE `restaurant` LIKE '$restaurant'"; 
+$result = $mysqli->query($query);
+$printKey = false;
+if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
+    echo "<form method='post'>";
+    echo "<table border='1'>";
+    while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
+        if( !$printKey ) {
             print( "<tr>\r\n" );
             foreach( $arr as $key=>$value) {
-                printf( "<td>%s</td>\r\n",$arr[ $key ]);
+                printf( "<td>%s</td>\r\n",$key);
             }
-            print( "<td><a href='items.php?
-            tb_restaurant=$tb_restaurant&added=".$arr['item_id']."'>add</a></td>");
-            print( "</tr>\r\n" ); 
+            print( "<td></td>");
+            print( "</tr>\r\n" );
+            $printKey = true;
         }
-        echo "</table>";
+        print( "<tr>\r\n" );
+        foreach( $arr as $key=>$value) {
+            printf( "<td>%s</td>\r\n",$arr[ $key ]);
+        }
+        print( "<td><a href='items.php?
+        tb_restaurant=$tb_restaurant&added=".$arr['item_id']."'>add</a></td>");
+        print( "</tr>\r\n" ); 
+    }
+    echo "</table>";
     }else{
-        echo "Sorry, no items available";
+    echo "Sorry, no items available";
     }
 }
 
@@ -65,7 +67,9 @@ function addstock($item_id, $username){
         ordered_datetime`, `cart_id`) VALUES ($item_id, 1,'$now',$cart_id);";
         $mysqli->query($query);
     }
+    }
 }
+
 
 function checkCart($username){
     global $mysqli;
