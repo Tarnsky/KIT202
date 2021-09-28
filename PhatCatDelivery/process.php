@@ -18,15 +18,13 @@ if(isset($_POST['update']))
   $firstname=$_POST['edit_fname'];
   $lastname =$_POST['edit_lname'];
   $address =$_POST['edit_address'];
-  $race = $_POST['edit_race'];
   $email = $_POST['edit_email'];
-
   $age = $_POST['edit_division'];
   $access = $_POST['access'];
 
 
 
- $mysqli->query("UPDATE participant SET firstname = '$firstname', lastname = '$lastname', gender = '$gender', race = '$race', email = '$email', age_group = '$age', access = '$access' WHERE id = '$id'") or die($mysqli->error());
+ $mysqli->query("UPDATE participant SET firstname = '$firstname', lastname = '$lastname', gender = '$gender', email = '$email', age_group = '$age', access = '$access' WHERE id = '$id'") or die($mysqli->error());
 
  echo "<script type='text/javascript'>alert('Updated');
 window.location='menu_list.php';</script>";
@@ -50,13 +48,12 @@ if(isset($_POST['mydetail_update']))
   $firstname=$_POST['mydetail_fname'];
   $lastname =$_POST['mydetail_lname'];
   $gender =$_POST['mydetail_gender'];
-  $race = $_POST['mydetail_race'];
   $email = $_POST['mydetail_email'];
   $age = $_POST['mydetail_division'];
 
 
 
- $mysqli->query("UPDATE participant SET firstname = '$firstname', lastname = '$lastname', gender = '$gender', race = '$race', email = '$email', age_group = '$age' WHERE id = '$id'") or die($mysqli->error());
+ $mysqli->query("UPDATE participant SET firstname = '$firstname', lastname = '$lastname', gender = '$gender', email = '$email', age_group = '$age' WHERE id = '$id'") or die($mysqli->error());
 
  echo "<script type='text/javascript'>alert('Updated');
 window.location='menu_list.php';</script>";
