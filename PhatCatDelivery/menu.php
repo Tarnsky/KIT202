@@ -105,7 +105,9 @@ include ('session.php');
 <?php
 include('cartFunctions.php');
 display_restaurant();
+
 ?>
+
   </body>
 <!-- Footer -->
 
