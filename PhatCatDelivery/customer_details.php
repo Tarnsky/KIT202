@@ -163,13 +163,44 @@ if($session_id == ""){
         <tr>
           <th>account balance</th>
           <th><?php echo $row['account_balance'];?></th>
+            <th>
+                <form action="#" method="post">
+                    <select name="selected[]">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <input type="submit" name="submit" value="Submit" />
+                </form>
+            </th>
         </tr>
 
       </table>
 
     </div>
-  <?php }} ?>
 
+  <?php }} ?>
+      <?php
+      if(isset($_POST['submit'])) {
+          foreach ($_POST['selected'] as $select)
+          {
+              #$add=$_POST['selected'];
+              #$query = "SELECT account_balance FROM tb_customers WHERE customer_id = '$session_id'";
+              #$result=$mysqli->query($query);
+              $result =$mysqli->query("SELECT account_balance FROM tb_customers WHERE customer_id = '$session_id'")->fetch_object()->account_balance;
+              #echo $add;
+              $new_bal=(int)$result+(int)$select;
+
+              $mysqli->query("UPDATE tb_customers SET account_balance = $new_bal WHERE customer_id = '$session_id'");
+              echo $new_bal;
+              # $mysqli->query("UPDATE account_balance set count = count + $count where id = $session_id");
+
+          }
+
+      }
+      ?>
   </div>
  <?php
  include('editstaff.php');
