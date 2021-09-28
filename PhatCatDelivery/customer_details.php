@@ -195,8 +195,8 @@ if($session_id == ""){
 
               $mysqli->query("UPDATE tb_customers SET account_balance = $new_bal WHERE customer_id = '$session_id'");
               echo $new_bal;
+              header("Refresh:0");
               # $mysqli->query("UPDATE account_balance set count = count + $count where id = $session_id");
-
           }
 
       }
