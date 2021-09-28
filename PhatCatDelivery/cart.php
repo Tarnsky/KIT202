@@ -106,11 +106,11 @@ include ('cartfunctions.php');
     $cart_id=checkCart($username);
     display_cart($cart_id);
 
-    if(isset($_POST['item_id'])){
+    if(isset($_POST['item_code'])){
         $cart_id=checkCart($username);
-        $item_id=$_POST['item_id'];
-        $amount="amount".$item_id;
-        editstock($item_id,$_POST[$amount],$cart_id);
+        $item_code=$_POST['item_code'];
+        $amount="amount".$item_code;
+        editstock($item_code,$_POST[$amount],$cart_id);
     }
 ?>
     </body>

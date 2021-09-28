@@ -19,30 +19,58 @@ if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
     echo "Sorry no items available";
 }
 
-//function display_items($restaurant_id){
+function display_items($restaurant_id){
+    global $mysqli;
+    $query = "SELECT item_code, item_price, ingredients, item_name, restaurant_id FROM `tb_items` WHERE `restaurant_id` LIKE '$restaurant_id'"; 
+    $result = $mysqli->query($query);
+    $printKey = false;
+    if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
+        echo "<form method='post'>";
+        echo "<table border='1'>";
+        while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
+            if( !$printKey ) {
+                print( "<tr>\r\n" );
+                foreach( $arr as $key=>$value) {
+                    printf( "<td>%s</td>\r\n",$key);
+                }
+                print( "<td></td>");
+                print( "</tr>\r\n" );
+                $printKey = true;
+            }
+            print( "<tr>\r\n" );
+            foreach( $arr as $key=>$value) {
+                printf( "<td>%s</td>\r\n",$arr[ $key ]);
+            }
+            print( "<td><a href='items.php?
+            tb_restaurant=$tb_restaurant&added=".$arr['item_code']."'>add</a></td>");
+            print( "</tr>\r\n" ); 
+        }
+        echo "</table>";
+        }else{
+        echo "Sorry, no items available";
+        }
+}
 
-//}
-
-function addstock($item_id, $username){
+function addstock($item_code, $username){
     global $mysqli;
     $cart_id=checkCart($username);
-    $query = "SELECT item_id, ordered_amount FROM `tb_orders` WHERE `cart_id` = $cart_id AND `item_id` = $item_id;";
+    $query = "SELECT item_code, ordered_amount FROM `tb_orders` WHERE `cart_id` = $cart_id AND `item_code` = $item_code;";
     $result = $mysqli->query($query);
 
     if($row = $result->fetch_array(MYSQLI_ASSOC)) {
         $amount=$row['ordered_amount']+1;
-        editstock($item_id, $amount,$cart_id);
+        editstock($item_code, $amount,$cart_id);
     }else{
         $now=date('Y-m-d H:i:s');
-        $query = "INSERT INTO `tb_orders`(`item_id`, `ordered_amount`, 
-        ordered_datetime`, `cart_id`) VALUES ($item_id, 1,'$now',$cart_id);";
+        $query = "INSERT INTO `tb_orders`(`item_code`, `ordered_amount`, 
+        ordered_datetime`, `cart_id`) VALUES ($item_code, 1,'$now',$cart_id);";
         $mysqli->query($query);
     }
     }
 }
 
 
-function checkCart($username){
+function checkCart($customer_id){
     global $mysqli;
     //see if cart has been made 
     $query = "SELECT `cart_id`, `paid` FROM `tb_cart` WHERE `cust_id` LIKE '$customer_id' AND `paid` = 'N';";
@@ -65,19 +93,19 @@ function checkCart($username){
 
 function display_cart($cart_id){
     global $mysqli;
-    $item_query = "SELECT item_id, ordered_amount FROM `tb_orders` WHERE `cart_id` = $cart_id";
-    $item_result = $mysqli->query($item_query);
-    $num = $item_result->num_row;
+    $item_query = "SELECT item_code, ordered_amount FROM `tb_orders` WHERE `cart_id` = $cart_id";
+    $item_result = $mysqli->query($item_result);
+    $num = mysqli_num_rows($result);
     if($num==0){
         echo "Your cart is empty";
     } else{
         echo "Your cart:";
         while( $row = $item_result->fetch_array(MYSQLI_ASSOC)) {
-            $item_id=$row['item_id'];
+            $item_code=$row['item_code'];
             $amount=$row['ordered_amount'];
-            $query = "SELECT item_code, ingredients, item_price, `item_name`, restaurant_id FROM `tb_items` WHERE `item_code` 
-            = $item_id";
-            $result = $mysqli->query($query);
+            $query = "SELECT item_code, ingredients, item_price, item_name, restaurant_id FROM `tb_items` WHERE `item_code` = $item_code";
+            $item_result = $mysqli->query($item_query);
+            $num = $item_result->num_rows;
             while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
                 if( !$printKey ) {
                     print( "<tr>\r\n" );
@@ -90,12 +118,12 @@ function display_cart($cart_id){
                     $printKey = true;
                 }
                 print( "<tr>\r\n" );
-                print( "<td><input type='radio' name='item_id' value='".$arr['item_id']."'></td>" );
+                print( "<td><input type='radio' name='item_code' value='".$arr['item_code']."'></td>" );
                 foreach( $arr as $key=>$value) {
                     printf( "<td>%s</td>\r\n", $arr[ $key ]);
                 }
                 $subtotal = $amount * $arr['item_price'];
-                print( "<td><input type='text' name='amount".$arr['item_id']."' size='2')
+                print( "<td><input type='text' name='amount".$arr['item_code']."' size='2')
                 value='$amount'><input type='submit' name='submit' value='Edit'></td>
                 <td>$subtotal</td>");
                 print( "</tr>\r\n" );
@@ -109,7 +137,7 @@ function display_cart($cart_id){
     }
 }
 
-function editstock($item_id,$amount,$cart_id){
+function editstock($item_code,$amount,$cart_id){
     global $mysqli;
     $amount = $mysqli->real_escape_string($amount);
     $query = "UPDATE `tb_orders` SET `ordered_amount`=$amount WHERE 
@@ -140,12 +168,12 @@ function complete_transaction($username,$after_balance,$cart_id){
     global $mysqli;
     $mysqli->query('SET autocommit = OFF;');
     $mysqli->query('START TRANSACTION;');
-    $item_query = "SELECT tb_items.item_id, ordered_amount FROM `tb_items` 
-    LEFT JOIN tb_orders ON tb_orders.item_id=tb_items.item_id WHERE 
+    $item_query = "SELECT tb_items.item_code, ordered_amount FROM `tb_items` 
+    LEFT JOIN tb_orders ON tb_orders.item_code=tb_items.item_code WHERE 
     tb_orders.cart_id = $cart_id;";
     $item_result = $mysqli->query($item_query);
     while($row=$item_result->fetch_array(MYSQLI_ASSOC)){
-    $item_id=$row['item_id'];
+    $item_code=$row['item_code'];
     }
     $query = "UPDATE `tb_customer` SET `account_balance`=$after_balance WHERE customer_id = 
     '$username';";
