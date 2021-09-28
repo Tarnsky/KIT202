@@ -10,16 +10,19 @@ $result = $mysqli->query($query);
 if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
     echo "Choose a restaurant:<ul>";
     while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
-        echo "<li><a href=items.php?
-        restaurant_id=".$row['restaurant_id'].">".$row['restaurant_id']."</li>";
+        echo "<li><a href='items.php?
+        restaurant_id=".$row['restaurant_id']."'>".$row['restaurant_id']."</li>";
         
     }
     echo "</ul>";
-}else{
+    }else{
     echo "Sorry no items available";
+    }
 }
 
-function display_items($restaurant_id){
+
+
+    function display_items($restaurant_id){
     global $mysqli;
     $query = "SELECT item_code, item_price, ingredients, item_name, restaurant_id FROM `tb_items` WHERE `restaurant_id` LIKE '$restaurant_id'"; 
     $result = $mysqli->query($query);
@@ -66,8 +69,8 @@ function addstock($item_code, $username){
         ordered_datetime`, `cart_id`) VALUES ($item_code, 1,'$now',$cart_id);";
         $mysqli->query($query);
     }
-    }
 }
+
 
 
 function checkCart($customer_id){

@@ -2,6 +2,8 @@
 <?php
 include ('db_conn.php');
 include ('session.php');
+include('cartFunctions.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -103,7 +105,6 @@ include ('session.php');
 </header>
   <body>
 <?php
-include('cartFunctions.php');
 display_restaurant();
 
 ?>
