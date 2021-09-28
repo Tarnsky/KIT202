@@ -2,7 +2,6 @@
 <?php
 include ('db_conn.php');
 include ('session.php');
-include('cartFunctions.php');
 
 ?>
 <!DOCTYPE html>
@@ -104,10 +103,24 @@ include('cartFunctions.php');
 </div>
 </header>
   <body>
-<?php
-display_restaurant();
 
+
+<?php
+global $mysqli;
+$query = "SELECT DISTINCT `restaurant_id` FROM `tb_items`";
+$result = $mysqli->query($query);
+if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
+    echo "Choose a restaurant:<ul>";
+    while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
+        echo "<li><a href=items.php?
+        restaurant_id=".$row['restaurant_id'].">".$row['restaurant_id']."</a></li>";
+    }
+    echo "</ul>";
+    }else{
+    echo "Sorry no items available";
+    }
 ?>
+
 
   </body>
 <!-- Footer -->

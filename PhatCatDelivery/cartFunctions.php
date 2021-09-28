@@ -10,9 +10,8 @@ $result = $mysqli->query($query);
 if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
     echo "Choose a restaurant:<ul>";
     while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
-        echo "<li><a href='items.php?
-        restaurant_id=".$row['restaurant_id']."'>".$row['restaurant_id']."</li>";
-        
+        echo "<li><a href=items.php?
+        restaurant_id=".$row['restaurant_id'].">".$row['restaurant_id']."</a></li>";
     }
     echo "</ul>";
     }else{
