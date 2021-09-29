@@ -105,10 +105,15 @@ include('cartFunctions.php');
 </header>
   <body>
 
+  <div class = "order">
+    <div class="panel">
+      <div class="pricing-plan">
 <?php
 display_restaurant();
 ?>
-
+      </div>
+    </div>
+  </div>
 
   </body>
 <!-- Footer -->
