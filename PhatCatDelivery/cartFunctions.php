@@ -50,9 +50,9 @@ function display_restaurant() {
         }
 }
 
-function addstock($item_code, $username){
+function addstock($item_code, $session_id){
     global $mysqli;
-    $cart_id=checkCart($username);
+    $cart_id=checkCart($session_id);
     $query = "SELECT item_code, ordered_amount FROM `tb_orders` WHERE `cart_id` = $cart_id AND `item_code` = $item_code;";
     $result = $mysqli->query($query);
 
@@ -72,7 +72,7 @@ function addstock($item_code, $username){
 function checkCart($customer_id){
     global $mysqli;
     //see if cart has been made 
-    $query = "SELECT `cart_id`, `paid` FROM `tb_cart` WHERE `cust_id` LIKE '$customer_id' AND `paid` = 'N';";
+    $query = "SELECT `cart_id`, `paid` FROM `tb_cart` WHERE `cust_id` LIKE '$session_id' AND `paid` = 'N';";
     $result = $mysqli->query($query);
     if($row=$result->fetch_array(MYSQLI_ASSOC)){
         $cart_id=$row['cart_id'];

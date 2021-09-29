@@ -102,14 +102,17 @@ include('cartFunctions.php');
   </div>
 </div>
 </header>
-
+ </body>
+ 
 <?php 
 echo $_GET['restaurant_id'];
 //Displays all items from the resturant selected in the menu.php
 display_items($_GET['restaurant_id']);
-
+if(isset($_GET['added'])){
+  addstock($_GET['added'],$_SESSION['user']);
+  }
 ?>
-    </body>
+  
 <!-- Footer -->
 
   <div class="footer">
