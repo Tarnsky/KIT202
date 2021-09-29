@@ -1,5 +1,6 @@
 <?php 
 include ('db_conn.php');
+include ('session.php');
 
 
 function display_restaurant() {
@@ -19,11 +20,9 @@ if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
     }
 }
 
-
-
     function display_items($restaurant_id){
     global $mysqli;
-    $query = "SELECT item_code, item_price, ingredients, item_name, restaurant_id FROM `tb_items` WHERE `restaurant_id` LIKE '$restaurant_id'"; 
+    $query = "SELECT item_name, item_code, item_price, ingredients, restaurant_id FROM `tb_items` WHERE `restaurant_id` LIKE '$restaurant_id'"; 
     $result = $mysqli->query($query);
     $printKey = false;
     if( $row_cnt = mysqli_num_rows($result) >= 1 ) {

@@ -113,9 +113,9 @@ include ('session.php');
   <div class = "order">
     <div class="panel">
       <div class="pricing-plan">
-        <img src="img/Burger.jpg" alt="" class="food-img">
+        <img src="img\Catdriving.jpg" alt="" class="food-img">
         <h2 class="food-header">Order now</h2>
-        <a class="nav-link" aria-current="page" href="menu.php">ORDER</a>
+        <a class="nav-link" aria-current="page" href="menu.php">Select Restaurant</a>
       </div>
     </div>
   </div>
@@ -229,7 +229,7 @@ include ('session.php');
               </tr>
               <tr>
                   <td>Restaurant Verification code</td>
-                  <td><input type="text" id="lname" required></td>
+                  <td><input type="text" id="Vcode" required></td>
                 </tr>
               <tr>
                 <td>Password</td>

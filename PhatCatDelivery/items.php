@@ -105,36 +105,8 @@ include('cartFunctions.php');
 
 <?php 
 //Displays all items from the resturant selected in the menu.php
-$restaurant_id = $_GET['restaurant_id'];
-global $mysqli;
-$query = "SELECT `item_code`, `item_price`, `ingredients`, `item_name`, `restaurant_id` FROM `tb_items` WHERE `restaurant_id` LIKE '$restaurant_id'"; 
-$result = $mysqli->query($query);
-$printKey = false;
-if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
-    echo "<form method='post'>";
-    echo "<table border='1'>";
-    while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
-        if( !$printKey ) {
-            print( "<tr>\r\n" );
-            foreach( $arr as $key=>$value) {
-                printf( "<td>%s</td>\r\n",$key);
-            }
-            print( "<td></td>");
-            print( "</tr>\r\n" );
-            $printKey = true;
-        }
-        print( "<tr>\r\n" );
-        foreach( $arr as $key=>$value) {
-            printf( "<td>%s</td>\r\n",$arr[ $key ]);
-        }
-        print( "<td><a href='items.php?
-        tb_restaurant=$tb_restaurant&added=".$arr['item_code']."'>add</a></td>");
-        print( "</tr>\r\n" ); 
-    }
-    echo "</table>";
-    }else{
-    echo "Sorry, no items available";
-    }
+display_items($_GET['restaurant_id']);
+
 ?>
     </body>
 <!-- Footer -->
