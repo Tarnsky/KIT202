@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2021 at 10:40 AM
+-- Generation Time: Sep 29, 2021 at 06:46 AM
 -- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.8
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,8 +58,8 @@ CREATE TABLE `tb_customers` (
 INSERT INTO `tb_customers` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `mobile_number`, `address`, `account_balance`, `access`) VALUES
 (1, 'leigh', 'beeton', 'leigh@gmail.com', '123456', 412444575, '1 dally st mowbray', 55, 3),
 (2, 'leigh', 'beeton', 'leighbeeton3@gmail.com', 'Beeton1', 497105575, '1 woodmans lane beaconfield tasmania', NULL, 1),
-(3, 'admin', 'admin', 'admin@gmail.com', 'piJd1fyUQ4gYI', 497105575, '1 woodmans lane beaconfield tasmania', NULL, 3),
-(4, 'customer', 'customer', 'customer@gmail.com', 'piJd1fyUQ4gYI', 497105575, 'test', NULL, 1);
+(3, 'admin', 'admin', 'admin@gmail.com', 'piJd1fyUQ4gYI', 497105575, 'pass:Test12', NULL, 3),
+(4, 'customer', 'customer', 'customer@gmail.com', 'piJd1fyUQ4gYI', 497105575, 'pass:Test12', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -72,19 +72,19 @@ CREATE TABLE `tb_items` (
   `item_price` float(11,2) NOT NULL,
   `ingredients` varchar(255) DEFAULT NULL,
   `item_name` varchar(255) NOT NULL,
-  `restaurant_id` int(11) DEFAULT NULL
+  `restaurant_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_items`
 --
 
-INSERT INTO `tb_items` (`item_code`, `item_price`, `ingredients`, `item_name`, `restaurant_id`) VALUES
-(1, 12.45, 'egg, bacon, bread', 'egg and bacon muffin', 1),
-(2, 69.69, 'cheese,tomato paste,flour,ham', 'pizza', 2),
-(3, 13.00, 'garlic,bread', 'garlic bread', 1),
-(5, 15.00, 'milk,flavouring', 'milkshake', 2),
-(6, 2.50, NULL, 'regular drink', 1);
+INSERT INTO `tb_items` (`item_code`, `item_price`, `ingredients`, `item_name`, `restaurant_name`) VALUES
+(1, 12.45, 'egg, bacon, bread', 'egg and bacon muffin', 'PizzaHat'),
+(2, 69.69, 'cheese,tomato paste,flour,ham', 'pizza', 'BurgerTown'),
+(3, 13.00, 'garlic,bread', 'garlic bread', 'PizzaHat'),
+(5, 15.00, 'milk,flavouring', 'milkshake', 'BurgerTown'),
+(6, 2.50, NULL, 'regular drink', 'PizzaHat');
 
 -- --------------------------------------------------------
 
@@ -105,20 +105,20 @@ CREATE TABLE `tb_menus` (
 --
 
 CREATE TABLE `tb_orders` (
-  `customer_id` int(11) NOT NULL,
   `order_no` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   `price_total` int(11) NOT NULL,
   `collection_time` time DEFAULT NULL,
   `discount` int(11) DEFAULT NULL,
-  `items_list` varchar(255) NOT NULL
+  `cart_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_orders`
 --
 
-INSERT INTO `tb_orders` (`customer_id`, `order_no`, `price_total`, `collection_time`, `discount`, `items_list`) VALUES
-(1, 1, 12, '12:00:00', NULL, 'f');
+INSERT INTO `tb_orders` (`order_no`, `customer_id`, `price_total`, `collection_time`, `discount`, `cart_id`) VALUES
+(1, 1, 12, '12:00:00', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -127,8 +127,7 @@ INSERT INTO `tb_orders` (`customer_id`, `order_no`, `price_total`, `collection_t
 --
 
 CREATE TABLE `tb_restaurant` (
-  `restaurant_id` int(11) NOT NULL,
-  `restaurant_name` varchar(255) DEFAULT NULL,
+  `restaurant_name` varchar(255) NOT NULL,
   `address` varchar(255) DEFAULT NULL,
   `business_code` int(11) DEFAULT NULL,
   `open_hours` time DEFAULT NULL,
@@ -140,9 +139,9 @@ CREATE TABLE `tb_restaurant` (
 -- Dumping data for table `tb_restaurant`
 --
 
-INSERT INTO `tb_restaurant` (`restaurant_id`, `restaurant_name`, `address`, `business_code`, `open_hours`, `menu_no`, `order_no`) VALUES
-(1, 'temp_1', '12 sally st', 2432, NULL, 1, NULL),
-(2, 'temp_2', '34 fred st', 3421, NULL, 2, NULL);
+INSERT INTO `tb_restaurant` (`restaurant_name`, `address`, `business_code`, `open_hours`, `menu_no`, `order_no`) VALUES
+('BurgerTown', '12 sally st', 2432, NULL, 1, NULL),
+('PizzaHat', '34 fred st', 3245, NULL, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -155,7 +154,7 @@ CREATE TABLE `tb_restaurant_managers` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `restaurant_id` int(11) DEFAULT NULL
+  `restaurant_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -189,7 +188,8 @@ ALTER TABLE `tb_customers`
 -- Indexes for table `tb_items`
 --
 ALTER TABLE `tb_items`
-  ADD PRIMARY KEY (`item_code`);
+  ADD PRIMARY KEY (`item_code`),
+  ADD KEY `tb_items_tb_restaurant_restaurant_name_fk` (`restaurant_name`);
 
 --
 -- Indexes for table `tb_menus`
@@ -202,13 +202,14 @@ ALTER TABLE `tb_menus`
 --
 ALTER TABLE `tb_orders`
   ADD PRIMARY KEY (`order_no`),
-  ADD KEY `orders_customers_customer_id_fk` (`customer_id`);
+  ADD KEY `orders_customers_customer_id_fk` (`customer_id`),
+  ADD KEY `tb_orders_tb_cart_cart_id_fk` (`cart_id`);
 
 --
 -- Indexes for table `tb_restaurant`
 --
 ALTER TABLE `tb_restaurant`
-  ADD PRIMARY KEY (`restaurant_id`),
+  ADD PRIMARY KEY (`restaurant_name`),
   ADD KEY `restaurant_orders_order_no_fk` (`order_no`);
 
 --
@@ -216,7 +217,7 @@ ALTER TABLE `tb_restaurant`
 --
 ALTER TABLE `tb_restaurant_managers`
   ADD PRIMARY KEY (`restraunt_managers_id`),
-  ADD KEY `restaurant_manager_restaurant_restaurant_id_fk` (`restaurant_id`);
+  ADD KEY `tb_restaurant_managers_tb_restaurant_restaurant_name_fk` (`restaurant_name`);
 
 --
 -- Indexes for table `tb_system_managers`
@@ -253,12 +254,6 @@ ALTER TABLE `tb_orders`
   MODIFY `order_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tb_restaurant`
---
-ALTER TABLE `tb_restaurant`
-  MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `tb_restaurant_managers`
 --
 ALTER TABLE `tb_restaurant_managers`
@@ -267,6 +262,12 @@ ALTER TABLE `tb_restaurant_managers`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `tb_items`
+--
+ALTER TABLE `tb_items`
+  ADD CONSTRAINT `tb_items_tb_restaurant_restaurant_name_fk` FOREIGN KEY (`restaurant_name`) REFERENCES `tb_restaurant` (`restaurant_name`);
 
 --
 -- Constraints for table `tb_menus`
@@ -278,7 +279,8 @@ ALTER TABLE `tb_menus`
 -- Constraints for table `tb_orders`
 --
 ALTER TABLE `tb_orders`
-  ADD CONSTRAINT `orders_customers_customer_id_fk` FOREIGN KEY (`customer_id`) REFERENCES `tb_customers` (`customer_id`);
+  ADD CONSTRAINT `orders_customers_customer_id_fk` FOREIGN KEY (`customer_id`) REFERENCES `tb_customers` (`customer_id`),
+  ADD CONSTRAINT `tb_orders_tb_cart_cart_id_fk` FOREIGN KEY (`cart_id`) REFERENCES `tb_cart` (`cart_id`);
 
 --
 -- Constraints for table `tb_restaurant`
@@ -290,7 +292,7 @@ ALTER TABLE `tb_restaurant`
 -- Constraints for table `tb_restaurant_managers`
 --
 ALTER TABLE `tb_restaurant_managers`
-  ADD CONSTRAINT `restaurant_manager_restaurant_restaurant_id_fk` FOREIGN KEY (`restaurant_id`) REFERENCES `tb_restaurant` (`restaurant_id`);
+  ADD CONSTRAINT `tb_restaurant_managers_tb_restaurant_restaurant_name_fk` FOREIGN KEY (`restaurant_name`) REFERENCES `tb_restaurant` (`restaurant_name`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
