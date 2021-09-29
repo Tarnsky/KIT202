@@ -105,12 +105,12 @@ include('cartFunctions.php');
  </body>
  
 <?php 
-echo $_GET['restaurant_id'];
+echo $_GET['restaurant_name'];
 echo "<a href='cart.php?'>View Cart</a>";
 //Displays all items from the resturant selected in the menu.php
-display_items($_GET['restaurant_id']);
+display_items($_GET['restaurant_name']);
 if(isset($_GET['added'])){
-  addstock($_GET['added'],$_SESSION['session_id']);
+  addstock($_GET['added'],$_SESSION['session_name']);
   }
 ?>
   

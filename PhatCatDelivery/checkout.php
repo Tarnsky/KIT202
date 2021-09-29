@@ -103,14 +103,14 @@ include ('cartfunctions.php');
 </div>
 </header>
 <?php 
-$cart_id=checkCart($username);
-display_checkout($cart_id,$username);
+$cart_id=checkCart($session_id);
+display_checkout($cart_id,$session_id);
 if($_GET['paynow']=='true'){
     echo "Thank you.<br/>";
     echo "Transaction completed.";
     $after_balance=$_GET['afterbalance'];
-    $cart_id=checkCart($_SESSION['user']);
-    complete_transaction($_SESSION['user'],$after_balance,$cart_id);
+    $cart_id=checkCart($_SESSION['session_id']);
+    complete_transaction($_SESSION['session_id'],$after_balance,$cart_id);
 }
 ?>
     </body>

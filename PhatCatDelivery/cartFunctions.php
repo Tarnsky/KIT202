@@ -6,12 +6,12 @@ include ('session.php');
 function display_restaurant() {
 //displays all restaurants 
     global $mysqli;
-    $query = "SELECT DISTINCT restaurant_id FROM `tb_items`";
+    $query = "SELECT DISTINCT restaurant_name FROM `tb_items`";
     $result = $mysqli->query($query);
     if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
         echo "Choose a restaurant:<ul>";
         while($row = $result->fetch_array(MYSQLI_ASSOC)){
-            echo "<li><a href=items.php?restaurant_id=".$row['restaurant_id'].">".$row['restaurant_id']."</a></li>";
+            echo "<li><a href=items.php?restaurant_name=".$row['restaurant_name'].">".$row['restaurant_name']."</a></li>";
         }
         echo "</ul>";
     }else{
@@ -19,9 +19,9 @@ function display_restaurant() {
     }
 }
 
-    function display_items($restaurant_id){
+    function display_items($restaurant_name){
     global $mysqli;
-    $query = "SELECT item_name, item_code, item_price, ingredients, restaurant_id FROM `tb_items` WHERE `restaurant_id` LIKE '$restaurant_id'"; 
+    $query = "SELECT item_name, item_code, item_price, ingredients, restaurant_name FROM `tb_items` WHERE `restaurant_name` LIKE '$restaurant_name'"; 
     $result = $mysqli->query($query);
     $printKey = false;
     if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
@@ -41,7 +41,7 @@ function display_restaurant() {
             foreach( $arr as $key=>$value) {
                 printf( "<td>%s</td>\r\n",$arr[ $key ]);
             }
-            print( "<td><a href='items.php?restaurant_id=$restaurant_id&added=".$arr['item_code']."'>add</a></td>");
+            print( "<td><a href='items.php?restaurant_name=$restaurant_name&added=".$arr['item_code']."'>add</a></td>");
             print( "</tr>\r\n" ); 
         }
         echo "</table>";
@@ -102,7 +102,7 @@ function display_cart($cart_id){
         while( $row = $item_result->fetch_array(MYSQLI_ASSOC)) {
             $item_code=$row['item_code'];
             $amount=$row['ordered_amount'];
-            $query = "SELECT item_code, ingredients, item_price, item_name, restaurant_id FROM `tb_items` WHERE `item_code` = $item_code";
+            $query = "SELECT item_code, ingredients, item_price, item_name, restaurant_name FROM `tb_items` WHERE `item_code` = $item_code";
             $item_result = $mysqli->query($item_query);
             $num = $item_result->num_rows;
             while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -170,12 +170,8 @@ function complete_transaction($username,$after_balance,$cart_id){
     $item_query = "SELECT tb_items.item_code, ordered_amount FROM `tb_items` 
     LEFT JOIN tb_orders ON tb_orders.item_code=tb_items.item_code WHERE 
     tb_orders.cart_id = $cart_id;";
-    $item_result = $mysqli->query($item_query);
-    while($row=$item_result->fetch_array(MYSQLI_ASSOC)){
-    $item_code=$row['item_code'];
-    }
     $query = "UPDATE `tb_customer` SET `account_balance`=$after_balance WHERE customer_id = 
-    '$username';";
+    '$session_id';";
         if(!$result=$mysqli->query($query)){
         $mysqli->query('ROLLBACK;');
         exit;
