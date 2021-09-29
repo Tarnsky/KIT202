@@ -102,6 +102,11 @@ include ('cartfunctions.php');
   </div>
 </div>
 </header>
+<div class = "order">
+    <div class="panel">
+      <div class="pricing-plan">
+        <div class="card-body text-center">
+
 <?php 
     $cart_id=checkCart($session_id);
     display_cart($cart_id);
@@ -113,6 +118,10 @@ include ('cartfunctions.php');
         editstock($item_code,$_POST[$amount],$cart_id);
     }
 ?>
+        </div>
+      </div>
+    </div>
+  </div>
     </body>
 <!-- Footer -->
 

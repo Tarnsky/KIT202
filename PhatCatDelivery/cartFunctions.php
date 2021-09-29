@@ -58,11 +58,10 @@ function addstock($item_code, $session_id){
     $result = $mysqli->query($query);
     if($row = $result->fetch_array(MYSQLI_ASSOC)) {
         $amount=$row['ordered_amount']+1;
-        editstock($item_code, $amount,$cart_id);
+        editstock($item_code,$amount,$cart_id);
     }else{
         $now=date('Y-m-d H:i:s');
-        $query = "INSERT INTO `tb_orders`(`item_code`, `ordered_amount`, 
-        ordered_datetime`, `cart_id`) VALUES ($item_code, 1,'$now',$cart_id);";
+        $query = "INSERT INTO `tb_orders`(`item_code`, `ordered_amount`, `ordered_datetime`, `cart_id`) VALUES ($item_code, 1,'$now',$cart_id);";
         $mysqli->query($query);
     }
 }
