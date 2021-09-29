@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2021 at 06:46 AM
+-- Generation Time: Sep 29, 2021 at 07:39 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -105,20 +105,20 @@ CREATE TABLE `tb_menus` (
 --
 
 CREATE TABLE `tb_orders` (
-  `order_no` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL,
-  `price_total` int(11) NOT NULL,
+  `order_code` int(11) NOT NULL,
+  `ordered_amount` int(11) NOT NULL,
   `collection_time` time DEFAULT NULL,
   `discount` int(11) DEFAULT NULL,
-  `cart_id` int(11) DEFAULT NULL
+  `cart_id` int(11) DEFAULT NULL,
+  `item_code` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_orders`
 --
 
-INSERT INTO `tb_orders` (`order_no`, `customer_id`, `price_total`, `collection_time`, `discount`, `cart_id`) VALUES
-(1, 1, 12, '12:00:00', NULL, NULL);
+INSERT INTO `tb_orders` (`order_code`, `ordered_amount`, `collection_time`, `discount`, `cart_id`, `item_code`) VALUES
+(1, 12, '12:00:00', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -201,9 +201,9 @@ ALTER TABLE `tb_menus`
 -- Indexes for table `tb_orders`
 --
 ALTER TABLE `tb_orders`
-  ADD PRIMARY KEY (`order_no`),
-  ADD KEY `orders_customers_customer_id_fk` (`customer_id`),
-  ADD KEY `tb_orders_tb_cart_cart_id_fk` (`cart_id`);
+  ADD PRIMARY KEY (`order_code`),
+  ADD KEY `tb_orders_tb_cart_cart_id_fk` (`cart_id`),
+  ADD KEY `tb_orders_tb_items_item_code_fk` (`item_code`);
 
 --
 -- Indexes for table `tb_restaurant`
@@ -251,7 +251,7 @@ ALTER TABLE `tb_items`
 -- AUTO_INCREMENT for table `tb_orders`
 --
 ALTER TABLE `tb_orders`
-  MODIFY `order_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_restaurant_managers`
@@ -279,14 +279,14 @@ ALTER TABLE `tb_menus`
 -- Constraints for table `tb_orders`
 --
 ALTER TABLE `tb_orders`
-  ADD CONSTRAINT `orders_customers_customer_id_fk` FOREIGN KEY (`customer_id`) REFERENCES `tb_customers` (`customer_id`),
-  ADD CONSTRAINT `tb_orders_tb_cart_cart_id_fk` FOREIGN KEY (`cart_id`) REFERENCES `tb_cart` (`cart_id`);
+  ADD CONSTRAINT `tb_orders_tb_cart_cart_id_fk` FOREIGN KEY (`cart_id`) REFERENCES `tb_cart` (`cart_id`),
+  ADD CONSTRAINT `tb_orders_tb_items_item_code_fk` FOREIGN KEY (`item_code`) REFERENCES `tb_items` (`item_code`);
 
 --
 -- Constraints for table `tb_restaurant`
 --
 ALTER TABLE `tb_restaurant`
-  ADD CONSTRAINT `restaurant_orders_order_no_fk` FOREIGN KEY (`order_no`) REFERENCES `tb_orders` (`order_no`);
+  ADD CONSTRAINT `restaurant_orders_order_no_fk` FOREIGN KEY (`order_no`) REFERENCES `tb_orders` (`order_code`);
 
 --
 -- Constraints for table `tb_restaurant_managers`
