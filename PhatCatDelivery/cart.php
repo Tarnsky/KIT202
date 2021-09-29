@@ -103,11 +103,11 @@ include ('cartfunctions.php');
 </div>
 </header>
 <?php 
-    $cart_id=checkCart($username);
+    $cart_id=checkCart($session_id);
     display_cart($cart_id);
 
     if(isset($_POST['item_code'])){
-        $cart_id=checkCart($username);
+        $cart_id=checkCart($session_id);
         $item_code=$_POST['item_code'];
         $amount="amount".$item_code;
         editstock($item_code,$_POST[$amount],$cart_id);

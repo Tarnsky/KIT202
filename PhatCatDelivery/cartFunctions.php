@@ -53,9 +53,9 @@ function display_restaurant() {
 function addstock($item_code, $session_id){
     global $mysqli;
     $cart_id=checkCart($session_id);
+
     $query = "SELECT item_code, ordered_amount FROM `tb_orders` WHERE `cart_id` = $cart_id AND `item_code` = $item_code;";
     $result = $mysqli->query($query);
-
     if($row = $result->fetch_array(MYSQLI_ASSOC)) {
         $amount=$row['ordered_amount']+1;
         editstock($item_code, $amount,$cart_id);
@@ -69,17 +69,17 @@ function addstock($item_code, $session_id){
 
 
 
-function checkCart($customer_id){
+function checkCart($session_id){
     global $mysqli;
     //see if cart has been made 
-    $query = "SELECT `cart_id`, `paid` FROM `tb_cart` WHERE `cust_id` LIKE '$session_id' AND `paid` = 'N';";
+    $query = "SELECT `cart_id`, `paid` FROM `tb_cart` WHERE `customer_id` LIKE '$session_id' AND `paid` = 'N';";
     $result = $mysqli->query($query);
     if($row=$result->fetch_array(MYSQLI_ASSOC)){
         $cart_id=$row['cart_id'];
         return $cart_id;
     }else{
         //create new cart
-        $query = "INSERT INTO `tb_cart`(`cust_id`, `paid`) VALUES ('$customer_id','N';";
+        $query = "INSERT INTO `tb_cart`(`customer_id`, `paid`) VALUES ('$session_id','N';";
         $mysqli->query($query);
 
         $query = "SELECT MAX(cart_id) FROM `tb_cart`;";
@@ -140,13 +140,13 @@ function editstock($item_code,$amount,$cart_id){
     global $mysqli;
     $amount = $mysqli->real_escape_string($amount);
     $query = "UPDATE `tb_orders` SET `ordered_amount`=$amount WHERE 
-    `item_code` = $item_code AND `customer_id` = $customer_id;";
+    `item_code` = $item_code AND `cart_id` = $cart_id;";
     $mysqli->query($query);
 }
 
-function display_checkout($cart_id,$customer_id){
+function display_checkout($cart_id,$session_id){
 
-    $query = "SELECT account_balance FROM  `tb_customer` WHERE `customer_id` LIKE '$customer_id'";
+    $query = "SELECT account_balance FROM `tb_customer` WHERE `customer_id` LIKE '$session_id'";
     $result = $mysqli->query($query);
     $row = $result->fetch_array(MYSQLI_ASSOC);
     echo "<tr><td colspan=5 align=right>Your balance</td><td>".    
