@@ -104,6 +104,7 @@ include('cartFunctions.php');
 </header>
 
 <?php 
+echo $_GET['restaurant_id'];
 //Displays all items from the resturant selected in the menu.php
 display_items($_GET['restaurant_id']);
 

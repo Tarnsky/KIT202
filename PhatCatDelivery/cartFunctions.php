@@ -5,18 +5,17 @@ include ('session.php');
 
 function display_restaurant() {
 //displays all restaurants 
-global $mysqli;
-$query = "SELECT DISTINCT restaurant_id FROM `tb_items`";
-$result = $mysqli->query($query);
-if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
-    echo "Choose a restaurant:<ul>";
-    while  ($row = $result->fetch_array(MYSQLI_ASSOC)){
-        echo "<li><a href=items.php?
-        restaurant_id=".$row['restaurant_id'].">".$row['restaurant_id']."</a></li>";
-    }
-    echo "</ul>";
+    global $mysqli;
+    $query = "SELECT DISTINCT restaurant_id FROM `tb_items`";
+    $result = $mysqli->query($query);
+    if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
+        echo "Choose a restaurant:<ul>";
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            echo "<li><a href=items.php?restaurant_id=".$row['restaurant_id'].">".$row['restaurant_id']."</a></li>";
+        }
+        echo "</ul>";
     }else{
-    echo "Sorry no items available";
+        echo "Sorry no items available";
     }
 }
 
@@ -42,8 +41,7 @@ if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
             foreach( $arr as $key=>$value) {
                 printf( "<td>%s</td>\r\n",$arr[ $key ]);
             }
-            print( "<td><a href='items.php?
-            tb_restaurant=$tb_restaurant&added=".$arr['item_code']."'>add</a></td>");
+            print( "<td><a href='items.php?restaurant_id=$restaurant_id&added=".$arr['item_code']."'>add</a></td>");
             print( "</tr>\r\n" ); 
         }
         echo "</table>";
