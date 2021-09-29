@@ -108,9 +108,11 @@ include('cartFunctions.php');
   <div class = "order">
     <div class="panel">
       <div class="pricing-plan">
+        <div class="card-body text-center">
 <?php
 display_restaurant();
 ?>
+        </div>
       </div>
     </div>
   </div>

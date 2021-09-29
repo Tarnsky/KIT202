@@ -103,17 +103,25 @@ include('cartFunctions.php');
 </div>
 </header>
  </body>
- 
+ <body>
+ <div class = "order">
+    <div class="panel">
+      <div class="pricing-plan">
+        <div class="card-body text-center">
 <?php 
 echo $_GET['restaurant_name'];
-echo "<a href='cart.php?'>View Cart</a>";
+echo "<a href='cart.php?'><br>View Cart</a>";
 //Displays all items from the resturant selected in the menu.php
 display_items($_GET['restaurant_name']);
 if(isset($_GET['added'])){
   addstock($_GET['added'],$_SESSION['session_name']);
   }
 ?>
-  
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 <!-- Footer -->
 
   <div class="footer">
