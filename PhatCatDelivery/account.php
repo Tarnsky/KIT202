@@ -103,7 +103,7 @@ if($session_id == ""){
   <?php  }?>
 
   </nav>
-
+<body>
 <!-- Tabs created for account -->
     <div class="tabs">
       <div class="tab-header">
@@ -213,28 +213,8 @@ if($session_id == ""){
       }
     </script>
 
-<!-- Footer -->
+    </body>
 
-<div class="footer">
-    <footer>
-      <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-        <ul class="list-inline">
-            <?php if ($session_access == "3"){ ?>
-                <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
-            <?php } elseif($session_access == "2") {?>
-                <li class="list-inline-item"><a href="mangerpage.php">ManagerPage</a></li>
-            <?php } else {?>
-
-            <?php  }?>
-            <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">ManagerLogin</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
-        </ul>
-    </footer>
-  </div>
-
-  <?php include ('login.php'); ?>
-
-<script type="text/javascript" src = "script.js"></script>
 </html>
+
 

@@ -1,3 +1,7 @@
+<?php
+include ('db_conn.php');
+include ('session.php');
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
