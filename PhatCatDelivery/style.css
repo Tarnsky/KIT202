@@ -201,7 +201,7 @@ When a user change the window size, panels are displayed as row.
   }
   .food-plan {
     border-bottom: none;
-    border-right: 1px solid #e1f1ff;
+    border-right: 1px solid #797979;
     padding: 25px 50px;
   }
   .food-plan:last-child {
@@ -211,7 +211,7 @@ When a user change the window size, panels are displayed as row.
 */
   .footer{
     padding:40px 0;
-    background-color: #ffffff;
+    background-color: #797979;
     color:#000000;
   }
   .footer ul{

@@ -116,7 +116,7 @@ if($session_id == ""){
     $result=$mysqli->query($query);
     ?>
     <div class="table-responsive p-4">
-      <h1>Participant List</h1>
+      <h1>Customer List</h1>
 
       <button class = "btn btn-primary float-right" data-toggle="modal" data-target="#regiModal">Add </button>
       <table class="table table-bordered table-striped">
@@ -219,7 +219,7 @@ if($session_id == ""){
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Marathon Registration</h5>
+          <h5 class="modal-title">Phatcat Registration</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -237,26 +237,6 @@ if($session_id == ""){
                 <td><input  class = "form-control" type="text" id="lname" name = "lname" ></td>
               </tr>
 
-              <tr class="form-group">
-                <td>Gender</td>
-                <td><input  type="radio" id="gender" name = "gender" value = "female" >Female
-                  <input   type="radio" id="gender" name = "gender" value = "male">Male
-                  <input   type="radio" id="gender" name = "gender" value = "other">Other
-                </td>
-              </tr>
-
-              <tr class="form-group">
-                <td>Select a race</td>
-                <td><select  class = "form-control" name="race" id="race" >
-                  <option  class = "form-control" value = "" hidden disabled selected = "selected">Select your race</option>
-                  <option  class = "form-control" value="5k">Fun Run 5k</option>
-                  <option  class = "form-control" value="half">Half Marathon</option>
-                  <option  class = "form-control"  value="full">Full Marathon</option>
-
-                </select>
-              </td>
-            </tr>
-
             <tr class="form-group">
               <td>Email</td>
               <td><input  class = "form-control" type="email" id="email" name ="email" ></td>
@@ -271,18 +251,6 @@ if($session_id == ""){
               <td>Confirm Password</td>
               <td><input class = "form-control"  type="password" id="confirm_password" name = "confirm_password"></td>
             </tr>
-
-            <tr class="form-group">
-              <td>Age Group</td>
-              <td><select  class = "form-control"  name="division" id="division" >
-                <option value = "" hidden disabled selected = "selected">Select your age group</option>
-                <option class = "form-control" value="kids">under 18</option>
-                <option  class = "form-control" value="ya">18-30</option>
-                <option  class = "form-control"  value="adults">30-50</option>
-                <option  class = "form-control" value="seniors">50+</option>
-              </select>
-            </td>
-          </tr>
 
 
         </table>

@@ -130,35 +130,37 @@ include ('session.php');
           Balance
         </div>
       </div>
+      <?php 
+            $query = "SELECT * FROM tb_customers WHERE customer_id = '$session_id'";
+            $result=$mysqli->query($query);
+            while($row = mysqli_fetch_array($result)){
+      }
+      ?>
 <!-- Tab content for defualt active page  which is the account details -->
       <div class="tab-content">
         <div class="active">
           <table>
             <tr>
               <td>Name: </td>
-              <td>Your Name</td>
-            </tr>
-            <tr>
-              <td>Age: </td>
-              <td>Your Age</td>
+              <td><?php echo $row['first_name']." , ".$row['last_name'] ;?></td>
             </tr>
             <tr>
               <td>Mobile Number: </td>
-              <td>Mobile number</td>
+              <td><?php echo $row['mobile_number'];?></td>
             </tr>
             <tr>
               <td>Password: </td>
-              <td>Your Password</td>
+              <td><?php echo $row['password'];?></td>
             </tr>
             <tr>
               <td>Address: </td>
-              <td>Your Address</td>
+              <td><?php echo $row['address'];?></td>
             </tr>
             <tr>
-              <td>Card #: </td>
-              <td>Your Card #</td>
+              <td>Customer ID: </td>
+              <td><?php echo $row['customer_id'];?></td>
             </tr>
-            <tr><td><button>Edit</button></td></tr>
+            <tr><td><a href="customer_details.php">Edit</a></td></tr>
           </table>
         </div>
 <!-- tab content for balance history -->
@@ -198,7 +200,7 @@ include ('session.php');
                 Current Balance:
               </td>
               <td>
-                $1254.34
+              $<?php echo $row['account_balance'];?>
               </td>
             </tr>
           </table>
