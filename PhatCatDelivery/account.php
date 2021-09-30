@@ -205,6 +205,19 @@ if($session_id == ""){
         </div>
       </div>
     </div>
+    <?php
+    if(isset($_POST['submit'])) {
+        foreach ($_POST['selected'] as $select)
+        {
+            $result =$mysqli->query("SELECT account_balance FROM tb_customers WHERE customer_id = '$session_id'")->fetch_object()->account_balance;
+            $new_bal=(int)$result+(int)$select;
+            $mysqli->query("UPDATE tb_customers SET account_balance = $new_bal WHERE customer_id = '$session_id'");
+            echo $new_bal;
+            header("Refresh:0");# refresh page
+        }
+
+    }
+    ?>
     <script>
       <?php } ?> 
 //script for tab headers and tab contents, query the selector through class 
