@@ -1,58 +1,50 @@
-  <!-- Registration Modal Form -->
-
-  <div class="modal fade" id="regiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Phatcat registration</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form role = "form" class="regiForm" action = "register_engine.php" method = "post">
-            <table class = "responsive">
-              <tr class="form-group">
-                <td style = "width: 40%"><label for="fname">First Name</label></td>
-                <td><input class = "form-control" type="text" id="fname" name ="fname" required></td>
-              </tr>
-              <tr class="form-group">
-                <td>Last Name</td>
-                <td><input  class = "form-control" type="text" id="lname" name = "lname" required></td>
-              </tr>
-              <tr class="form-group">
-                <td>Email</td>
-                <td><input  class = "form-control" type="email" id="email" name ="email" required></td>
-              </tr>
-              <tr>
-                <td>Address</td>
-                <td><input class = "form-control" type="text" id="address" name ="address" required></td>
-              </tr>
-                <tr>
-                    <td>phone number</td>
-                    <td><input class = "form-control" type="number" id="phone_number" name="phone_number" required></td>
-                </tr>
-              <tr class="form-group">
-                <td>Password</td>
-                <td><input class = "form-control"  type="password" id="password" name = "password" required pattern = "(?=.*\d)(?=.*[A-Za-z]).{6,8}" title = "Must contain at least one number, one letters and between 6 and 8 characters"></td>
-              </tr>
-              <tr class="form-group">
-                <td>Confirm Password</td>
-                <td><input class = "form-control"  type="password" id="confirm_password" name = "confirm_password" required ></td>
-              </tr>
-              <tr class="form-group">
-          </td>
-        </tr>
-            </table>
-            <p><span id = "msg"></span></p>
-
-            <button class = "btn btn-danger float-right" type = "submit" id = "register" name = "register">Register</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </form>
-        </div>
+<div class="modal fade" id="edit_user_modal" tabindex="-1" role="dialog" aria-labelledby="edit-modal-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Change Staff Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </div>
-  </div>
+      <div class="modal-body">
+        <form role = "form" class="regiForm" action = "process.php" method = "post">
+          <input class = "form-control" type = "text" id = "user_id" name = "user_id" hidden>
+          <table class = "responsive">
+            <tr class="form-group">
+              <td style = "width: 40%"><label for="fname">First Name</label></td>
+              <td><input class = "form-control" type="text" id="edit_fname" name ="edit_fname" ></td>
+            </tr>
+
+            <tr class="form-group">
+              <td>Last Name</td>
+              <td><input  class = "form-control" type="text" id="edit_lname" name = "edit_lname" ></td>
+            </tr>
+
+            <tr class="form-group">
+              <td>Email</td>
+              <td><input  class = "form-control" type="email" id="edit_email" name ="edit_email" ></td>
+            </tr>
+
+            <tr>
+                <td>Restaurant name</td>
+                <td><input class = "form-control" type="text" id="edit_Rname" name ="edit_Rname"required></td>
+              </tr>
+            <tr>
+ 
+        <tr class="form-group">
+          <td>Access</td>
+          <td><select  class = "form-control"  name="access" id="access" >
+            <option value = "" hidden disabled selected = "selected">Select your position</option>
+            <option class = "form-control" value="2">Manager</option>
+            <option  class = "form-control" value="3">admin</option>
+
+          </select>
+        </td>
+      </tr>
+
+
+      </table>
       <p><span id = "msg"></span></p>
 
       <button class = "btn btn-danger float-right" type = "submit" id = "update" name = "update">Update</button>
