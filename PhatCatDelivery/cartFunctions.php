@@ -164,19 +164,25 @@ function complete_transaction($username,$after_balance,$cart_id){
     $mysqli->query('SET autocommit = OFF;');
     $mysqli->query('START TRANSACTION;');
     $item_query = "SELECT tb_items.item_code, ordered_amount FROM `tb_items` LEFT JOIN tb_orders ON tb_orders.item_code=tb_items.item_code WHERE tb_orders.cart_id = $cart_id;";
-    $query = "UPDATE `tb_customer` SET `account_balance`=$after_balance WHERE customer_id = 
-    '$session_id';";
-        if(!$result=$mysqli->query($query)){
+    $item_result = $mysqli->query($item_query);
+    while($row=$item_result->fetch_array(MYSQLI_ASSOC)){
+        $item_id=$row['item_id'];
+        $amount=$row['ordered_amount'];
+        $quantity=$row['item_quantity'];
+        $remain=$quantity-$amount;
+    }
+    $query = "UPDATE `tb_customer` SET `account_balance`=$after_balance WHERE customer_id = '$session_id';";
+    if(!$result=$mysqli->query($query)){
         $mysqli->query('ROLLBACK;');
         exit;
         }
     $query = "UPDATE `tb_cart` SET `paid`='Y' WHERE cart_id=$cart_id;";
     $mysqli->query($query);
-        if(!$result=$mysqli->query($query)){
-            $mysqli->query('ROLLBACK;');
-            exit;
-        }else{
-            $mysqli->query('COMMIT;');
+    if(!$result=$mysqli->query($query)){
+        $mysqli->query('ROLLBACK;');
+        exit;
+    }else{
+        $mysqli->query('COMMIT;');
     }
 }
 ?>
