@@ -20,7 +20,7 @@ function display_restaurant() {
     }
 }
 
-    function display_items($restaurant_name){
+function display_items($restaurant_name){
     global $mysqli;
     $query = "SELECT item_name, item_code, item_price, ingredients, restaurant_name FROM `tb_items` WHERE `restaurant_name` LIKE '$restaurant_name'"; 
     $result = $mysqli->query($query);
@@ -46,7 +46,7 @@ function display_restaurant() {
             print( "</tr>\r\n" ); 
         }
         echo "</table>";
-        }else{
+    }else{
         echo "Sorry, no items available";
         }
 }
@@ -68,10 +68,10 @@ function addstock($item_code, $session_id){
 }
 
 
-
+//see if cart has been made 
 function checkCart($session_id){
     global $mysqli;
-    //see if cart has been made 
+    
     $query = "SELECT `cart_id`, `paid` FROM `tb_cart` WHERE `customer_id` LIKE '$session_id' AND `paid` = 'N';";
     $result = $mysqli->query($query);
     if($row=$result->fetch_array(MYSQLI_ASSOC)){
@@ -99,12 +99,12 @@ function display_cart($cart_id){
         echo "Your cart is empty";
     } else{
         echo "Your cart:";
+        echo "<form method='post'><table id='cart' border='1'>";
         while( $row = $item_result->fetch_array(MYSQLI_ASSOC)) {
             $item_code=$row['item_code'];
             $amount=$row['ordered_amount'];
             $query = "SELECT item_code, ingredients, item_price, item_name, restaurant_name FROM `tb_items` WHERE `item_code` = $item_code";
-            $item_result = $mysqli->query($item_query);
-            $num = $item_result->num_rows;
+            $result = $mysqli->query($query);
             while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
                 if( !$printKey ) {
                     print( "<tr>\r\n" );
