@@ -99,7 +99,6 @@ include ('session.php');
      </ul>
      </div>
   <?php  }?>
-
   </nav>
 
   <!-- Background image -->

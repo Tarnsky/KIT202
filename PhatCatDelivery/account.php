@@ -26,11 +26,11 @@ if($session_id == ""){
     <!-- icons library-->
     <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
 </head>
-<body>
 <header>
-   <!-- Navbar -->
 
-   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"
@@ -101,28 +101,10 @@ if($session_id == ""){
      </ul>
      </div>
   <?php  }?>
-  </nav>
-    <!-- Background image -->
 
-    <div class="p-5 text-center bg-image header-background" >
-    <div class="mask">
-      <div class="d-flex justify-content-center align-items-center h-100">
-        <div class="text-white">
-          <h1 class="mb-3">Phatcat Delivery</h1>
-            <?php if ($session_id == ""){ ?>
-            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
-            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#loginModal" role="button">SIGN IN</a>
-            <?php } else {?>
-            <a class="btn btn-outline-light btn-lg" href="logout.php" role="button">LOGOUT</a>
-            <?php  }?>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+  </nav>
 
 <!-- Tabs created for account -->
-  </nav>
     <div class="tabs">
       <div class="tab-header">
         <div class="active"> 
@@ -233,7 +215,7 @@ if($session_id == ""){
 
 <!-- Footer -->
 
-  <div class="footer">
+<div class="footer">
     <footer>
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
         <ul class="list-inline">
@@ -254,5 +236,5 @@ if($session_id == ""){
   <?php include ('login.php'); ?>
 
 <script type="text/javascript" src = "script.js"></script>
-</body>
 </html>
+
