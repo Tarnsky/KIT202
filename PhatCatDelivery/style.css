@@ -51,7 +51,7 @@ All texts are displayed in uppercases
   flex-direction: column;
   text-align: center;
   text-transform: uppercase;
-  box-shadow: 10px 5px 5px rgb(231, 7, 7);
+  box-shadow: 10px 5px 5px rgb(0, 110, 255);
   
 }
 
@@ -87,7 +87,7 @@ Maximum width size is 100%
 
 .pricing-plan {
   margin-left: 40px;
-  border: 1px solid black;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 /* the class = "food-header"
@@ -97,7 +97,7 @@ Letters have a space at 1px
 */
 
 .food-header {
-  color: #888;
+  color: rgb(0, 110, 255);
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -111,7 +111,7 @@ background colour is #016ff9
 */
 .food-features {
   margin: 50px 0 25px;
-  color: #016ff9;
+  color: #000000;
 }
 
 
@@ -165,7 +165,7 @@ it is displayed as block.
 }
 
 .pricing-plan a {
-  background: gray;
+  background: rgb(255, 255, 255);
 }
 
 /* the class = "signup-button"
@@ -183,9 +183,9 @@ it is displayed as inline-block.
 }
 
 .order-button {
-  border: 1px solid #9dd1ff;
+  border: 1px solid #69b9ff;
   border-radius: 10px;
-  color: #348efe;
+  color: #0073ff;
   display: inline-block;
   padding: 15px 35px;
   text-decoration: none;
@@ -211,8 +211,8 @@ When a user change the window size, panels are displayed as row.
 */
   .footer{
     padding:40px 0;
-    background-color: #bfbfbf;
-    color:#4b4c4d;
+    background-color: #ffffff;
+    color:#ffffff;
   }
   .footer ul{
     padding: 0;
