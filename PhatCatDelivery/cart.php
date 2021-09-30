@@ -26,68 +26,81 @@ include ('cartfunctions.php');
   <body>
   <header>
 
-<!-- Navbar -->
+   <!-- Navbar -->
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <div class="container-fluid">
-      <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarExample01"
-      aria-controls="navbarExample01"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      >
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarExample01">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" aria-current="page" href="index.php">Home</a>
+   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <div class="container-fluid">
+        <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="index.php">Home</a>
+          </li>
+            <?php if ($session_id == ""){ ?>
+          <li class="nav-item">
+            <a class="nav-link"  href="#" data-toggle="modal" data-target="#regiModal">Registration</a>
+          </li>
+            <?php }?>
+            <?php if ($session_id == ""){ ?>
+   <?php } else {?>
+     <div class="collapse navbar-collapse">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="account.php">Account</a>
+        </li>
+     </ul>
+     </div>
+  <?php  }?>
+          <li class="nav-item">
+            <a class="nav-link"  href="#" data-toggle="modal" data-target="#PartnerregiModal">Become a Partner Restaurant</a>
+          </li>
+        </ul>
+
+  <!-- Search Bar -->
+
+      </div>
+        <nav class="navbar navbar-light bg-white justify-content-between">
+        <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="restaurant" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+        </nav>
+    </div>
+    <?php if ($session_id == ""){ ?>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"  href="#" data-toggle="modal" data-target="#regiModal">Registration</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="account.html">Account</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"  href="#" data-toggle="modal" data-target="#PartnerregiModal">Become a Partner Restaurant</a>
+          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
         </li>
       </ul>
-
-<!-- Search Bar -->
-
-    </div>
-      <nav class="navbar navbar-light bg-white justify-content-between">
-      <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="restaurant" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-      </nav>
-  </div>
-  <?php if ($session_id == ""){ ?>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
-      </li>
-
-    </ul>
-    </div>
- <?php } else {?>
-   <div class="collapse navbar-collapse">
-     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-     <li class="nav-item">
-       <a type = "button" class="nav-link float-right" href = "logout.php">Logout</a>
-     </li>
-   </ul>
-   </div>
-<?php  }?>
-
-</nav>
-
+      </div>
+   <?php } else {?>
+     <div class="collapse navbar-collapse">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
+        </li>
+       <li class="nav-item">
+         <a type = "button" class="nav-link float-right" href = "logout.php">Logout</a>
+       </li>
+     </ul>
+     </div>
+  <?php  }?>
+  </nav>
+  
 <!-- Background image -->
 
 <div class="p-5 text-center bg-image header-background" >

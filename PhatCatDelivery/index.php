@@ -51,9 +51,16 @@ include ('session.php');
             <a class="nav-link"  href="#" data-toggle="modal" data-target="#regiModal">Registration</a>
           </li>
             <?php }?>
-          <li class="nav-item">
-            <a class="nav-link" href="account.html">Account</a>
-          </li>
+            <?php if ($session_id == ""){ ?>
+   <?php } else {?>
+     <div class="collapse navbar-collapse">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="account.php">Account</a>
+        </li>
+     </ul>
+     </div>
+  <?php  }?>
           <li class="nav-item">
             <a class="nav-link"  href="#" data-toggle="modal" data-target="#PartnerregiModal">Become a Partner Restaurant</a>
           </li>
@@ -73,6 +80,9 @@ include ('session.php');
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
+        </li>
+        <li class="nav-item">
           <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
         </li>
       </ul>
@@ -80,6 +90,9 @@ include ('session.php');
    <?php } else {?>
      <div class="collapse navbar-collapse">
        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
+        </li>
        <li class="nav-item">
          <a type = "button" class="nav-link float-right" href = "logout.php">Logout</a>
        </li>
@@ -110,7 +123,7 @@ include ('session.php');
 
 <!-- Restaurants -->
 
-  <div class = "order">
+  <div class ="order">
     <div class="panel">
       <div class="pricing-plan">
         <img src="img\Catdriving.jpg" alt="" class="food-img">
@@ -261,7 +274,24 @@ include ('session.php');
     <footer>
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
       <ul class="list-inline">
-        <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
+      <?php if ($session_access == "3"){ ?>
+        <div class="collapse navbar-collapse">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="masterpage.php">Masterpage</a>
+        </li>
+     </ul>
+     </div>
+   <?php } elseif($session_access == "2") {?>
+    <div class="collapse navbar-collapse">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="mangerpage.php">ManagerPage</a>
+        </li>
+     </ul>
+     </div>
+     <?php } else {?>
+  <?php  }?>
         <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">Manager Login</a></li>
         <li class="list-inline-item"><a href="#">Terms</a></li>
         <li class="list-inline-item"><a href="#">Privacy Policy</a></li>

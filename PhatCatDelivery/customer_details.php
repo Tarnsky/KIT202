@@ -34,9 +34,9 @@ if($session_id == ""){
   </head>
   <body>
     <header>
-      <!-- Navbar -->
+   <!-- Navbar -->
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"
@@ -54,12 +54,21 @@ if($session_id == ""){
           <li class="nav-item active">
             <a class="nav-link" aria-current="page" href="index.php">Home</a>
           </li>
+            <?php if ($session_id == ""){ ?>
           <li class="nav-item">
             <a class="nav-link"  href="#" data-toggle="modal" data-target="#regiModal">Registration</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="account.html">Account</a>
-          </li>
+            <?php }?>
+            <?php if ($session_id == ""){ ?>
+   <?php } else {?>
+     <div class="collapse navbar-collapse">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="account.php">Account</a>
+        </li>
+     </ul>
+     </div>
+  <?php  }?>
           <li class="nav-item">
             <a class="nav-link"  href="#" data-toggle="modal" data-target="#PartnerregiModal">Become a Partner Restaurant</a>
           </li>
@@ -79,14 +88,19 @@ if($session_id == ""){
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
+        </li>
+        <li class="nav-item">
           <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
         </li>
-
       </ul>
       </div>
    <?php } else {?>
      <div class="collapse navbar-collapse">
        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+          <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
+        </li>
        <li class="nav-item">
          <a type = "button" class="nav-link float-right" href = "logout.php">Logout</a>
        </li>

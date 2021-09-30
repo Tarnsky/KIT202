@@ -58,7 +58,7 @@ if($session_id == ""){
             <a class="nav-link"  href="#" data-toggle="modal" data-target="#regiModal">Registration</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="account.html">Account</a>
+            <a class="nav-link" href="account.php">Account</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"  href="#" data-toggle="modal" data-target="#PartnerregiModal">Become a Partner Restaurant</a>
