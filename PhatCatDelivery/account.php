@@ -101,10 +101,28 @@ if($session_id == ""){
      </ul>
      </div>
   <?php  }?>
-
   </nav>
+    <!-- Background image -->
+
+    <div class="p-5 text-center bg-image header-background" >
+    <div class="mask">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <h1 class="mb-3">Phatcat Delivery</h1>
+            <?php if ($session_id == ""){ ?>
+            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
+            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#loginModal" role="button">SIGN IN</a>
+            <?php } else {?>
+            <a class="btn btn-outline-light btn-lg" href="logout.php" role="button">LOGOUT</a>
+            <?php  }?>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
 <!-- Tabs created for account -->
+  </nav>
     <div class="tabs">
       <div class="tab-header">
         <div class="active"> 
@@ -190,7 +208,18 @@ if($session_id == ""){
               </td>
             </tr>
           </table>
-          <tr><td><button>Deposit</button></td></tr>
+            <th>
+                <form action="#" method="post">
+                    <select name="selected[]">
+                        <option value="5">$5</option>
+                        <option value="10">$10</option>
+                        <option value="20">$20</option>
+                        <option value="50">$50</option>
+                        <option value="100">$100</option>
+                    </select>
+                    <input type="submit" name="submit" value="ADD FUNDS" />
+                </form>
+            </th>
         </div>
       </div>
     </div>
@@ -215,6 +244,10 @@ if($session_id == ""){
 
 <!-- Footer -->
 
+    <div class="footer">
+      <footer>
+        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+
 <div class="footer">
     <footer>
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
@@ -230,11 +263,11 @@ if($session_id == ""){
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
         </ul>
-    </footer>
-  </div>
+      </footer>
+    </div>
+    <?php include ('login.php'); ?>
 
-  <?php include ('login.php'); ?>
+    <script type="text/javascript" src = "script.js"></script>
 
-<script type="text/javascript" src = "script.js"></script>
+  </body>
 </html>
-
