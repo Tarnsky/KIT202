@@ -107,7 +107,7 @@ include ('session.php');
     <div class="card">
       <div class="card-body text-center">
         <h5 class="card-title">Privacy policy </h5>
-        <p class="card-text">Phatcat Delivery is an online food delivery app to help you order food from your favourite local restaurants and have it delivered to your door ASAP(insert good privacy policy here)</p>
+        <p class="card-text">Phatcat Delivery sells all your information for phat profits. If you wish for us to not sell or post your information, please text STOP to 0412345678.... But that probably won’t work. Only one way to find out!</p>
       </div>
     </div>
   </div>
@@ -115,7 +115,9 @@ include ('session.php');
 
 <!-- Footer -->
 
-  <div class="footer">
+<!-- Footer -->
+
+<div class="footer">
     <footer>
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
         <ul class="list-inline">
@@ -126,7 +128,9 @@ include ('session.php');
             <?php } else {?>
 
             <?php  }?>
+            <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">ManagerLogin</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
         </ul>
     </footer>
   </div>
