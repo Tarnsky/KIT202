@@ -125,8 +125,9 @@ echo $_GET['restaurant_name'];
 echo "<a href='cart.php?'><br>View Cart</a>";
 //Displays all items from the resturant selected in the menu.php
 display_items($_GET['restaurant_name']);
+
 if(isset($_GET['added'])){
-  addstock($_GET['added'],$session_id);
+  addstock($_GET['added'],$_SESSION['session_id']);
   }
 ?>
         </div>

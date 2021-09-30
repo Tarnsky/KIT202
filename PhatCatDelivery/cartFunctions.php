@@ -70,7 +70,6 @@ function addstock($item_code, $session_id){
 //see if cart has been made 
 function checkCart($session_id){
     global $mysqli;
-    
     $query = "SELECT `cart_id`, `paid` FROM `tb_cart` WHERE `customer_id` LIKE '$session_id' AND `paid` = 'N';";
     $result = $mysqli->query($query);
     if($row=$result->fetch_array(MYSQLI_ASSOC)){
