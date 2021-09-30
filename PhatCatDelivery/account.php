@@ -1,6 +1,11 @@
 <?php
 include ('db_conn.php');
 include ('session.php');
+
+if($session_id == ""){
+     echo "<script type='text/javascript'>alert('You need to login!!');
+    window.location='index.php';</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -134,7 +139,6 @@ include ('session.php');
             $query = "SELECT * FROM tb_customers WHERE customer_id = '$session_id'";
             $result=$mysqli->query($query);
             while($row = mysqli_fetch_array($result)){
-      }
       ?>
 <!-- Tab content for defualt active page  which is the account details -->
       <div class="tab-content">
@@ -209,6 +213,7 @@ include ('session.php');
       </div>
     </div>
     <script>
+      <?php } ?> 
 //script for tab headers and tab contents, query the selector through class 
 // and assignt it to tabHeaders and tabcontents variables
       let tabHeaders = document.querySelectorAll(".tabs .tab-header >div");
