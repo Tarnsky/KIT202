@@ -212,7 +212,7 @@ When a user change the window size, panels are displayed as row.
   .footer{
     padding:40px 0;
     background-color: #ffffff;
-    color:#ffffff;
+    color:#000000;
   }
   .footer ul{
     padding: 0;
