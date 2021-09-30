@@ -2,7 +2,6 @@
 include ('db_conn.php');
 include ('session.php');
 
-
 function display_restaurant() {
 //displays all restaurants 
     global $mysqli;
@@ -57,7 +56,7 @@ function addstock($item_code, $session_id){
 
     $query = "SELECT item_code, ordered_amount FROM `tb_orders` WHERE `cart_id` = $cart_id AND `item_code` = $item_code;";
     $result = $mysqli->query($query);
-    if($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+    if($row=$result->fetch_array(MYSQLI_ASSOC)) {
         $amount=$row['ordered_amount']+1;
         editstock($item_code,$amount,$cart_id);
     }else{
