@@ -23,7 +23,7 @@ $row=$result->fetch_array(MYSQLI_ASSOC);
      $_SESSION['session_id'] = $row['customer_id'];
      $_SESSION['session_user']=$row['first_name'];
      $_SESSION['session_email']=$row['email'];
-     #$_SESSION['session_access']=$row['access'];
+     $_SESSION['session_access']=$row['access'];
 
      echo "ok";
    } else {

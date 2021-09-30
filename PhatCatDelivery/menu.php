@@ -140,7 +140,7 @@ display_restaurant();
         <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
         <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">Manager Login</a></li>
         <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
       </ul>
     </footer>
   </div>

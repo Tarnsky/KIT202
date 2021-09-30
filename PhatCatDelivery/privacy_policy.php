@@ -1,14 +1,14 @@
+<!-- need to update all the header on all pages to have login stuff -->
 <?php
 include ('db_conn.php');
 include ('session.php');
-include ('cartfunctions.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>checkout</title>
-    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="utf-8">
+  <title>Assigment 2</title>
+  <link rel="stylesheet" href="style.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -20,15 +20,15 @@ include ('cartfunctions.php');
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-      <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
+  <!-- icons library-->
+  <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
+</head>
+<body>
   <header>
 
-   <!-- Navbar -->
+  <!-- Navbar -->
 
-   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"
@@ -99,46 +99,40 @@ include ('cartfunctions.php');
      </ul>
      </div>
   <?php  }?>
+
   </nav>
-
-<!-- Background image -->
-
-<div class="p-5 text-center bg-image header-background" >
-  <div class="mask">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="text-white">
-        <h1 class="mb-3">Phatcat Delivery</h1>
-        <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
-        <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#LoginModal" role="button">SIGN IN</a>
+  </header>
+  <body>
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body text-center">
+        <h5 class="card-title">Privacy policy </h5>
+        <p class="card-text">Phatcat Delivery is an online food delivery app to help you order food from your favourite local restaurants and have it delivered to your door ASAP(insert good privacy policy here)</p>
       </div>
     </div>
   </div>
-</div>
-</header>
-<?php 
-$cart_id=checkCart($session_id);
-display_checkout($cart_id,$session_id);
-if($_GET['paynow']=='true'){
-    echo "Thank you.<br/>";
-    echo "Transaction completed.";
-    $after_balance=$_GET['afterbalance'];
-    $cart_id=checkCart($_SESSION['session_id']);
-    complete_transaction($_SESSION['session_id'],$after_balance,$cart_id);
-}
-?>
-    </body>
+  </body>
+
 <!-- Footer -->
 
   <div class="footer">
     <footer>
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
-        <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">Manager Login</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
-      </ul>
+        <ul class="list-inline">
+            <?php if ($session_access == "3"){ ?>
+                <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
+            <?php } elseif($session_access == "2") {?>
+                <li class="list-inline-item"><a href="mangerpage.php">ManagerPage</a></li>
+            <?php } else {?>
+
+            <?php  }?>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+        </ul>
     </footer>
   </div>
+
+  <?php include ('login.php'); ?>
+
+<script type="text/javascript" src = "script.js"></script>
 </body>
 </html>

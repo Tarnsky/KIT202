@@ -273,29 +273,18 @@ include ('session.php');
   <div class="footer">
     <footer>
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-      <ul class="list-inline">
-      <?php if ($session_access == "3"){ ?>
-        <div class="collapse navbar-collapse">
-       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       <li class="nav-item">
-          <a type = "button" class="nav-link float-right" href="masterpage.php">Masterpage</a>
-        </li>
-     </ul>
-     </div>
-   <?php } elseif($session_access == "2") {?>
-    <div class="collapse navbar-collapse">
-       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       <li class="nav-item">
-          <a type = "button" class="nav-link float-right" href="mangerpage.php">ManagerPage</a>
-        </li>
-     </ul>
-     </div>
-     <?php } else {?>
-  <?php  }?>
-        <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">ManagerLogin</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-      </ul>
+        <ul class="list-inline">
+            <?php if ($session_access == "3"){ ?>
+                <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
+            <?php } elseif($session_access == "2") {?>
+                <li class="list-inline-item"><a href="mangerpage.php">ManagerPage</a></li>
+            <?php } else {?>
+
+            <?php  }?>
+            <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">ManagerLogin</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
+        </ul>
     </footer>
   </div>
 
