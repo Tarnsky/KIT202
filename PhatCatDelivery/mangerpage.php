@@ -4,10 +4,10 @@ include ('session.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Masterpage</title>
-    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="utf-8">
+  <title>Assigment 2</title>
+  <link rel="stylesheet" href="style.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -19,14 +19,15 @@ include ('session.php');
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-      <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
-  </head>
+  <!-- icons library-->
+  <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
+</head>
 <body>
   <header>
-   <!-- Navbar -->
 
-   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"
@@ -98,21 +99,25 @@ include ('session.php');
      </div>
   <?php  }?>
   </nav>
-  
-    <!-- Background image -->
-  
-    <div class="p-5 text-center bg-image header-background" >
-      <div class="mask">
-        <div class="d-flex justify-content-center align-items-center h-100">
-          <div class="text-white">
-            <h1 class="mb-3">Phatcat Delivery</h1>
+
+  <!-- Background image -->
+
+  <div class="p-5 text-center bg-image header-background" >
+    <div class="mask">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <h1 class="mb-3">Phatcat Delivery</h1>
+            <?php if ($session_id == ""){ ?>
             <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
-            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#LoginModal" role="button">SIGN IN</a>
-          </div>
+            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#loginModal" role="button">SIGN IN</a>
+            <?php } else {?>
+            <a class="btn btn-outline-light btn-lg" href="logout.php" role="button">LOGOUT</a>
+            <?php  }?>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
 <!-- MasterPage Edit Restaurants  -->
 
