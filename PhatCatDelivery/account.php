@@ -103,7 +103,7 @@ if($session_id == ""){
   <?php  }?>
 
   </nav>
-<body>
+
 <!-- Tabs created for account -->
     <div class="tabs">
       <div class="tab-header">
@@ -190,7 +190,18 @@ if($session_id == ""){
               </td>
             </tr>
           </table>
-          <tr><td><button>Deposit</button></td></tr>
+            <th>
+                <form action="#" method="post">
+                    <select name="selected[]">
+                        <option value="5">$5</option>
+                        <option value="10">$10</option>
+                        <option value="20">$20</option>
+                        <option value="50">$50</option>
+                        <option value="100">$100</option>
+                    </select>
+                    <input type="submit" name="submit" value="ADD FUNDS" />
+                </form>
+            </th>
         </div>
       </div>
     </div>
@@ -213,8 +224,33 @@ if($session_id == ""){
       }
     </script>
 
-    </body>
+<!-- Footer -->
 
+    <div class="footer">
+      <footer>
+        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+
+<div class="footer">
+    <footer>
+      <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <ul class="list-inline">
+            <?php if ($session_access == "3"){ ?>
+                <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
+            <?php } elseif($session_access == "2") {?>
+                <li class="list-inline-item"><a href="mangerpage.php">ManagerPage</a></li>
+            <?php } else {?>
+
+            <?php  }?>
+            <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">ManagerLogin</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
+        </ul>
+      </footer>
+    </div>
+    <?php include ('login.php'); ?>
+
+    <script type="text/javascript" src = "script.js"></script>
+
+  </body>
 </html>
-
 

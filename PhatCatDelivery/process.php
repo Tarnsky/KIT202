@@ -19,12 +19,11 @@ if(isset($_POST['update']))
   $lastname =$_POST['edit_lname'];
   $address =$_POST['edit_address'];
   $email = $_POST['edit_email'];
-  $age = $_POST['edit_division'];
   $access = $_POST['access'];
 
 
 
- $mysqli->query("UPDATE participant SET firstname = '$firstname', lastname = '$lastname', gender = '$gender', email = '$email', age_group = '$age', access = '$access' WHERE id = '$id'") or die($mysqli->error());
+ $mysqli->query("UPDATE customer SET firstname = '$firstname', lastname = '$lastname', email = '$email', access = '$access' WHERE id = '$id'") or die($mysqli->error());
 
  echo "<script type='text/javascript'>alert('Updated');
 window.location='menu_list.php';</script>";
@@ -33,7 +32,7 @@ window.location='menu_list.php';</script>";
 
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $mysqli->query("DELETE FROM participant WHERE id='$id'") or die($mysqli->error());
+    $mysqli->query("DELETE FROM tb_customers WHERE customer_id='$id'") or die($mysqli->error());
 
     echo "<script type='text/javascript'>alert('A participant is deleted!');
    window.location='menu_list.php';</script>";
