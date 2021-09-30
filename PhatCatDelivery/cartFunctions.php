@@ -54,7 +54,7 @@ function addstock($item_code, $session_id){
     global $mysqli;
     $cart_id=checkCart($session_id);
 
-    $query = "SELECT item_code, ordered_amount FROM `tb_orders` WHERE `cart_id` = $cart_id AND `item_code` = $item_code;";
+    $query = "SELECT `item_code`, `ordered_amount` FROM `tb_orders` WHERE `cart_id` = $cart_id AND `item_code` = $item_code;";
     $result = $mysqli->query($query);
     if($row = $result->fetch_array(MYSQLI_ASSOC)) {
         $amount=$row['ordered_amount']+1;
@@ -92,8 +92,8 @@ function checkCart($session_id){
 function display_cart($cart_id){
     global $mysqli;
     $item_query = "SELECT item_code, ordered_amount FROM `tb_orders` WHERE `cart_id` = $cart_id";
-    $item_result = $mysqli->query($item_result);
-    $num = mysqli_num_rows($result);
+    $item_result = $mysqli->query($item_query);
+    $num = $item_result->num_rows;
     if($num==0){
         echo "Your cart is empty";
     } else{
@@ -148,8 +148,7 @@ function display_checkout($cart_id,$session_id){
     $query = "SELECT account_balance FROM `tb_customer` WHERE `customer_id` LIKE '$session_id'";
     $result = $mysqli->query($query);
     $row = $result->fetch_array(MYSQLI_ASSOC);
-    echo "<tr><td colspan=5 align=right>Your balance</td><td>".    
-    $row['account_balance']."</td>";
+    echo "<tr><td colspan=5 align=right>Your balance</td><td>".$row['account_balance']."</td>";
     $after_balance=$row['account_balance']-$total;
     echo "<tr><td colspan=5 align=right>Your balance(after 
     transaction)</td><td>$after_balance</td>";
