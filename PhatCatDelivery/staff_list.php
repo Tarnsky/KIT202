@@ -36,7 +36,7 @@ if($session_id == ""){
     <header>
       <!-- Navbar -->
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"
@@ -129,10 +129,9 @@ if($session_id == ""){
       </table>
     </div>
   <?php } else {
-    $query = "SELECT * FROM staff WHERE id = '$session_id'";
+    $query = "SELECT * FROM `tb_users` WHERE id = '$session_id'";
     $result=$mysqli->query($query);
     while($row = mysqli_fetch_array($result)){
-
     ?>
     <div class="table-responsive p-4">
       <h3>Your details</h3>

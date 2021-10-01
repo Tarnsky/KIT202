@@ -1,3 +1,8 @@
+<?php
+include ('db_conn.php');
+include ('session.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -22,7 +27,7 @@
   <header>
    <!-- Navbar -->
 
-   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+   <nav class="navbar navbar-expand-lg navbar-light bg-white top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"

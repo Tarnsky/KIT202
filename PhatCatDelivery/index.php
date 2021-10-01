@@ -1,7 +1,7 @@
 <?php
 include ('db_conn.php');
 include ('session.php');
-include ('cartFunctions.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -28,7 +28,7 @@ include ('cartFunctions.php');
 
   <!-- Navbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"

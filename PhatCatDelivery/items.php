@@ -27,7 +27,7 @@ include('cartFunctions.php');
   <header>
    <!-- Navbar -->
 
-   <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+   <nav class="navbar navbar-expand-lg navbar-light bg-white top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"

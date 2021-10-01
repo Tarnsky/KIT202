@@ -36,7 +36,7 @@ if($session_id == ""){
     <header>
       <!-- Navbar -->
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"
@@ -129,7 +129,7 @@ if($session_id == ""){
 
   </div>
  <?php
- include ('edit.php');
+// include ('edit.php');
  ?>
 
   <!-- Registration Modal Form -->
