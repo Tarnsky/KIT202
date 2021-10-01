@@ -200,7 +200,7 @@ if($session_id == ""){
   <?php }} ?>
   </div>
  <?php
- include('editstaff.php');
+ include('edituser.php');
  ?>
 
   <!-- Registration Modal Form -->
