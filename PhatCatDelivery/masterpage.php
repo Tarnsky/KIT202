@@ -117,10 +117,13 @@
     <div class = "order">
       <div class="panel">
         <div class="pricing-plan">
-          <a href="additemsmenu.php" class="order-button">Edit menu</a>
+          <a href="menu.php" class="order-button">Edit menu</a>
         </div>
       <div class="pricing-plan">
-        <a href="editstaff.php" class="order-button">Edit Staff</a>
+        <a href="staff_list.php" class="order-button">Edit staff</a>
+    </div>
+    <div class="pricing-plan">
+        <a href="restaurant_list.php" class="order-button">Edit restaurant</a>
     </div>
     </div>
   </div>

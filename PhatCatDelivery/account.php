@@ -191,7 +191,7 @@ if($session_id == ""){
             </tr>
           </table>
             <th>
-                <form action="#" method="post">
+                <form action="" method="post">
                     <select name="selected[]">
                         <option value="5">$5</option>
                         <option value="10">$10</option>

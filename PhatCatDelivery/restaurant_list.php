@@ -17,7 +17,7 @@ if($session_id == ""){
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Staff</title>
+    <title>Restaurant List</title>
     <link rel="stylesheet" href="style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -97,64 +97,36 @@ if($session_id == ""){
    </header>
   <div class="content">
     <?php
-    if ($session_id == "2"){
-    $query = "SELECT * FROM staff";
-    $result=$mysqli->query($query);
-    ?>
-    <div class="table-responsive p-4">
-      <h1>staff List</h1>
-
-      <button class = "btn btn-primary float-right" data-toggle="modal" data-target="#regiModal">Add </button>
-      <table class="table table-bordered table-striped">
-        <thead>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th colspan = "2">Action</th>
-        </thead>
-        <tbody>
-          <?php
-          while($row = mysqli_fetch_array($result)){
-            ?>
-            <tr>
-              <td><?php echo $row ['id'] ;?></td>
-              <td><?php echo $row['firstname']." , ".$row['lastname'] ;?></td>
-              <td><?php echo $row['email'];?></td>
-                <td><a href = #edit_modal class="btn  btn-dark open-edit" id="<?= $row['id']; ?>">Edit</td>
-              <td><a href="process.php?delete=<?php echo $row['id']; ?>" class = "btn btn-danger"> Delete</a></td>
-            </tr>
-          <?php };
-            ?>
-        </tbody>
-      </table>
-    </div>
-  <?php } else {
-    $query = "SELECT * FROM staff WHERE id = '$session_id'";
+    if ($session_id == "3"){
+    $query = "SELECT * FROM tb_restaurant";
     $result=$mysqli->query($query);
     while($row = mysqli_fetch_array($result)){
 
     ?>
     <div class="table-responsive p-4">
-      <h3>Your details</h3>
+      <h3>Restaurant</h3>
       <table class="table table-bordered table-striped">
         <tr>
           <th>Name</th>
-          <th><?php echo $row['firstname']." , ".$row['lastname'] ;?></th>
+          <th><?php echo $row['restaurant_name'];?></th>
         </tr>
         <tr>
         <tr>
-          <th>Email</th>
-          <th><?php echo $row['email'];?></th>
+          <th>Address</th>
+          <th><?php echo $row['address'];?></th>
         </tr>
         <tr>
-          <th>Password</th>
-          <th><?php echo $row['password'];?></th>
+          <th>Business code</th>
+          <th><?php echo $row['business_code'];?></th>
         </tr>
         <tr>
+          <th>Open hours</th>
+          <th><?php echo $row['open_hours'];?></th>
+        </tr>
       </table>
 
     </div>
-  <?php }} ?>
+  <?php } ?>
 
   </div>
  <?php
@@ -166,7 +138,7 @@ if($session_id == ""){
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Staff Registration</h5>
+          <h5 class="modal-title">Restaurant Registration</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
