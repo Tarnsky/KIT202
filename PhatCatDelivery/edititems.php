@@ -151,7 +151,7 @@ edit_items($_GET['restaurant_name']);
           <form role = "form" class="regiForm" action = "item_engine.php" method = "post">
             <table class = "responsive">
               <tr class="form-group">
-                <td style = "width: 40%"><label for="fname">Name</label></td>
+                <td style = "width: 40%"><label for="name">Name</label></td>
                 <td><input class = "form-control" type="text" id="name" name ="name" required></td>
               </tr>
               <tr class="form-group">

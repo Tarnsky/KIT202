@@ -3,24 +3,22 @@
 include('db_conn.php'); //db connection
 
 if (isset($_POST['register'])){
-  $first_name=$_POST['fname'];
-  $last_name =$_POST['lname'];
-  $email = $_POST['email'];
+  $name=$_POST['fname'];
   $address =$_POST['address'];
-  $phone_number=$_POST['phone_number'];
-  $password = $_POST['password'];
-
-    $salt = "pizza";
-    $encrypted_password = crypt($password, $salt);
+  $code=$_POST['code'];
+  $open = $_POST['open'];
+  $close = $_POST['close'];
 
 
-  $register = "INSERT INTO tb_users (`first_name`, `last_name`, `email`,  `address`,`mobile_number`, `password`) VALUES ('$first_name','$last_name','$email','$address','$phone_number','$encrypted_password')";
 
 
-  $mysqli->query($register);
+  $restaurantregister = "INSERT INTO tb_restaurant (`restaurant_name`, `address`, `business_code`,  `open_time`,`close_time`) VALUES ('$name','$address','$code','$open','$close')";
+
+
+  $mysqli->query($restaurantregister);
 
    echo "<script type='text/javascript'>alert('You are successfully registered!');
-  window.location='index.php';</script>";
+  window.location='edit.php';</script>";
 
 }
 
