@@ -1,6 +1,5 @@
 <?php 
 include ('db_conn.php');
-include ('session.php');
 
 function display_restaurant() {
 //displays all restaurants 
@@ -38,17 +37,67 @@ function display_items($restaurant_name){
                 $printKey = true;
             }
             print( "<tr>\r\n" );
+            if($user = 1){
             foreach( $arr as $key=>$value) {
                 printf( "<td>%s</td>\r\n",$arr[ $key ]);
             }
-            print( "<td><a href='items.php?restaurant_name=$restaurant_name&added=".$arr['item_code']."'>add</a></td>");
-            print( "</tr>\r\n" ); 
+                print( "<td><a href='items.php?restaurant_name=$restaurant_name&added=".$arr['item_code']."'>add</a></td>");
+                print( "</tr>\r\n" ); 
+            }
         }
         echo "</table>";
     }else{
         echo "Sorry, no items available";
         }
 }
+
+function edit_restaurant() {
+    //displays all restaurants 
+        global $mysqli;
+        $query = "SELECT DISTINCT restaurant_name FROM `tb_items`";
+        $result = $mysqli->query($query);
+        if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
+            echo "<br><br>Choose a restaurant:<ul><br>";
+            while($row = $result->fetch_array(MYSQLI_ASSOC)){
+                echo "<li><a href=edititems.php?restaurant_name=".$row['restaurant_name'].">".$row['restaurant_name']."</a></li><br>";
+            }
+            echo "</ul>";
+        }else{
+            echo "Sorry no items available";
+        }
+    }
+
+function edit_items($restaurant_name){
+    global $mysqli;
+    $query = "SELECT `item_name`, `item_code`, `item_price`, `ingredients`, `restaurant_name` FROM `tb_items` WHERE `restaurant_name` LIKE '$restaurant_name'"; 
+    $result = $mysqli->query($query);
+    $printKey = false;
+    if( $row_cnt = mysqli_num_rows($result) >= 1 ) {
+        echo "<form method='post'>";
+        echo "<table border='1'>";
+        while( $arr = $result->fetch_array(MYSQLI_ASSOC)) {
+            if( !$printKey ) {
+                print( "<tr>\r\n" );
+                foreach( $arr as $key=>$value) {
+                    printf( "<td>%s</td>\r\n",$key);
+                }
+                print( "<td></td>");
+                print( "</tr>\r\n" );
+                $printKey = true;
+            }
+            print( "<tr>\r\n" );
+            if($user = 1){
+            foreach( $arr as $key=>$value) {
+                printf( "<td>%s</td>\r\n",$arr[ $key ]);
+            }
+                print( "</tr>\r\n" ); 
+            }
+        }
+        echo "</table>";
+    }else{
+        echo "Sorry, no items available";
+        }
+} 
 
 function addstock($item_code, $session_id){
     global $mysqli;

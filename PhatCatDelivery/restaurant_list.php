@@ -6,7 +6,6 @@ use the editstaff page -->
 
 <?php
 include ('db_conn.php');
-include ('session.php');
 include('cartFunctions.php');
 if($session_id == ""){
      echo "<script type='text/javascript'>alert('You need to login!!');
@@ -136,7 +135,7 @@ if($session_id == ""){
 
   </div>
  <?php
- include ('edit.php');
+ include ('edituser.php');
  ?>
 
   <!-- Registration Modal Form -->
