@@ -15,6 +15,6 @@ $session_email=$_SESSION['session_email'];
 $session_access = $_SESSION['session_access'];
 
 
-//echo $session_user;
+//echo $session_id;
 //echo $session_access;
 ?>
