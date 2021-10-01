@@ -2,10 +2,6 @@
 include ('db_conn.php');
 include ('session.php');
 
-if($session_id == ""){
-     echo "<script type='text/javascript'>alert('You need to login!!');
-    window.location='index.php';</script>";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

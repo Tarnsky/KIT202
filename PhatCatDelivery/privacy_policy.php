@@ -1,4 +1,3 @@
-<!-- need to update all the header on all pages to have login stuff -->
 <?php
 include ('db_conn.php');
 include ('session.php');
@@ -122,7 +121,7 @@ include ('session.php');
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
         <ul class="list-inline">
             <?php if ($session_access == "3"){ ?>
-                <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
+                <li class="list-inline-item"><a href="masterpage.html">Masterpage</a></li>
             <?php } elseif($session_access == "2") {?>
                 <li class="list-inline-item"><a href="mangerpage.php">ManagerPage</a></li>
             <?php } else {?>

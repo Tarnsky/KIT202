@@ -1,7 +1,3 @@
-<!-- This page will allow the system manager to see staff list and change them 
- (only system manger will have access to this page) Not sure if we need this page or can just 
-use the editstaff page -->
-
 <?php
 include ('db_conn.php');
 include('cartFunctions.php');
