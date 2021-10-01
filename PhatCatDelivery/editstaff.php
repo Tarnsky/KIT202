@@ -2,7 +2,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Change Staff Details</h5>
+        <h5 class="modal-title">Change user Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -37,7 +37,8 @@
           <td><select  class = "form-control"  name="access" id="access" >
             <option value = "" hidden disabled selected = "selected">Select your position</option>
             <option class = "form-control" value="2">Manager</option>
-            <option  class = "form-control" value="3">admin</option>
+            <option  class = "form-control" value="3">Admin</option>
+            <option  class = "form-control" value="3">Staff</option>
 
           </select>
         </td>
