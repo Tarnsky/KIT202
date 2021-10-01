@@ -2,6 +2,10 @@
 include ('db_conn.php');
 include ('session.php');
 include ('cartFunctions.php');
+if($session_id == ""){
+  echo "<script type='text/javascript'>alert('You need to login!!');
+ window.location='index.php';</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -46,25 +50,7 @@ include ('cartFunctions.php');
           <li class="nav-item active">
             <a class="nav-link" aria-current="page" href="index.php">Home</a>
           </li>
-            <?php if ($session_id == ""){ ?>
-          <li class="nav-item">
-            <a class="nav-link"  href="#" data-toggle="modal" data-target="#regiModal">Registration</a>
-          </li>
-            <?php }?>
-            <?php if ($session_id == ""){ ?>
-   <?php } else {?>
-     <div class="collapse navbar-collapse">
-       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       <li class="nav-item">
-          <a type = "button" class="nav-link float-right" href="account.php">Account</a>
-        </li>
-     </ul>
-     </div>
-  <?php  }?>
-          <li class="nav-item">
-            <a class="nav-link"  href="#" data-toggle="modal" data-target="#PartnerregiModal">Become a Partner Restaurant</a>
-          </li>
-        </ul>
+
 
   <!-- Search Bar -->
 
@@ -76,6 +62,7 @@ include ('cartFunctions.php');
       </form>
         </nav>
     </div>
+    
     <?php if ($session_id == ""){ ?>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -83,7 +70,7 @@ include ('cartFunctions.php');
           <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
         </li>
         <li class="nav-item">
-          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
+          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="index.php">Login</a>
         </li>
       </ul>
       </div>
@@ -108,8 +95,7 @@ include ('cartFunctions.php');
     <div class="d-flex justify-content-center align-items-center h-100">
       <div class="text-white">
         <h1 class="mb-3">Phatcat Delivery</h1>
-        <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
-        <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#LoginModal" role="button">SIGN IN</a>
+        <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="index.php" role="button">Home</a>
       </div>
     </div>
   </div>
@@ -143,13 +129,12 @@ include ('cartFunctions.php');
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
         <ul class="list-inline">
             <?php if ($session_access == "3"){ ?>
-                <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
+                <li class="list-inline-item"><a href="masterpage.html">Masterpage</a></li>
             <?php } elseif($session_access == "2") {?>
                 <li class="list-inline-item"><a href="mangerpage.php">ManagerPage</a></li>
             <?php } else {?>
 
             <?php  }?>
-            <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">ManagerLogin</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
         </ul>

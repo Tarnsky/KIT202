@@ -13,6 +13,7 @@ if($session_id == ""){
     <meta charset="utf-8">
     <title>Account Details</title>
     <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!-- jQuery library -->
@@ -48,25 +49,7 @@ if($session_id == ""){
           <li class="nav-item active">
             <a class="nav-link" aria-current="page" href="index.php">Home</a>
           </li>
-            <?php if ($session_id == ""){ ?>
-          <li class="nav-item">
-            <a class="nav-link"  href="#" data-toggle="modal" data-target="#regiModal">Registration</a>
-          </li>
-            <?php }?>
-            <?php if ($session_id == ""){ ?>
-   <?php } else {?>
-     <div class="collapse navbar-collapse">
-       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       <li class="nav-item">
-          <a type = "button" class="nav-link float-right" href="account.php">Account</a>
-        </li>
-     </ul>
-     </div>
-  <?php  }?>
-          <li class="nav-item">
-            <a class="nav-link"  href="#" data-toggle="modal" data-target="#PartnerregiModal">Become a Partner Restaurant</a>
-          </li>
-        </ul>
+
 
   <!-- Search Bar -->
 
@@ -85,7 +68,7 @@ if($session_id == ""){
           <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
         </li>
         <li class="nav-item">
-          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
+          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="login.php">Login</a>
         </li>
       </ul>
       </div>
@@ -101,8 +84,23 @@ if($session_id == ""){
      </ul>
      </div>
   <?php  }?>
-
+  
   </nav>
+  
+ <!-- Background image -->
+
+ <div class="p-5 text-center bg-image header-background" >
+    <div class="mask">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <h1 class="mb-3">Phatcat Delivery</h1>
+            <?php if ($session_id == ""){ ?>
+            <?php } else {?>
+            <?php  }?>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- Tabs created for account -->
     <div class="tabs">
@@ -122,7 +120,7 @@ if($session_id == ""){
             $result=$mysqli->query($query);
             while($row = mysqli_fetch_array($result)){
       ?>
-      
+
 <!-- Tab content for defualt active page  which is the account details -->
       <div class="tab-content">
         <div class="active">
