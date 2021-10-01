@@ -7,7 +7,7 @@ use the editstaff page -->
 <?php
 include ('db_conn.php');
 include ('session.php');
-
+include('cartFunctions.php');
 if($session_id == ""){
      echo "<script type='text/javascript'>alert('You need to login!!');
     window.location='index.php';</script>";
@@ -119,9 +119,16 @@ if($session_id == ""){
           <th><?php echo $row['business_code'];?></th>
         </tr>
         <tr>
-          <th>Open hours</th>
-          <th><?php echo $row['open_hours'];?></th>
+          <th>Open time</th>
+          <th><?php echo $row['open_time'];?></th>
         </tr>
+        <tr>
+          <th>close time</th>
+          <th><?php echo $row['close_time'];?></th>
+        </tr>
+        <?php 
+        $restaurant = $row['restaurant_name'];   
+        display_items($restaurant)?>
       </table>
 
     </div>
@@ -129,7 +136,7 @@ if($session_id == ""){
 
   </div>
  <?php
-// include ('edit.php');
+ include ('edit.php');
  ?>
 
   <!-- Registration Modal Form -->

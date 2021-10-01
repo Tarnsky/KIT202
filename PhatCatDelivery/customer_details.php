@@ -111,12 +111,12 @@ if($session_id == ""){
    </header>
   <div class="content">
     <?php
-    if ($session_id == "3"){
+    if ($session_id == "3" || "2"){
     $query = "SELECT * FROM tb_users";
     $result=$mysqli->query($query);
     ?>
     <div class="table-responsive p-4">
-      <h1>Customer List</h1>
+      <h1>User List</h1>
 
       <button class = "btn btn-primary float-right" data-toggle="modal" data-target="#regiModal">Add </button>
       <table class="table table-bordered table-striped">
@@ -127,6 +127,7 @@ if($session_id == ""){
           <th>Email</th>
           <th>mobile number</th>
           <th>account balance</th>
+          <th>Role<th>
           <th colspan = "2">Action</th>
         </thead>
         <tbody>
@@ -140,6 +141,7 @@ if($session_id == ""){
               <td><?php echo $row['email'];?></td>
               <td><?php echo $row['mobile_number'];?></td>
               <td><?php echo $row['account_balance'];?></td>
+              <td><?php echo $row['role'];?></td>
               <td><a href = #edit_modal class="btn  btn-dark open-edit" id="<?= $row['customer_id']; ?>">Edit</td>
               <td><a href="process.php?delete=<?php echo $row['customer_id']; ?>" class = "btn btn-danger"> Delete</a></td>
             </tr>
@@ -198,7 +200,7 @@ if($session_id == ""){
   <?php }} ?>
   </div>
  <?php
- include('editstaff.php');
+ include('edituser.php');
  ?>
 
   <!-- Registration Modal Form -->
