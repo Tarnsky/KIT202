@@ -112,7 +112,7 @@ if($session_id == ""){
   <div class="content">
     <?php
     if ($session_id == "3"){
-    $query = "SELECT * FROM tb_customers";
+    $query = "SELECT * FROM tb_users";
     $result=$mysqli->query($query);
     ?>
     <div class="table-responsive p-4">
@@ -149,7 +149,7 @@ if($session_id == ""){
       </table>
     </div>
   <?php } else {
-    $query = "SELECT * FROM tb_customers WHERE customer_id = '$session_id'";
+    $query = "SELECT * FROM tb_users WHERE customer_id = '$session_id'";
     $result=$mysqli->query($query);
     while($row = mysqli_fetch_array($result)){
 
@@ -262,7 +262,7 @@ if($session_id == ""){
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
         <ul class="list-inline">
             <?php if ($session_access == "3"){ ?>
-                <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
+                <li class="list-inline-item"><a href="masterpage.php">Masterpage</a></li>
             <?php } elseif($session_access == "2") {?>
                 <li class="list-inline-item"><a href="mangerpage.php">ManagerPage</a></li>
             <?php } else {?>

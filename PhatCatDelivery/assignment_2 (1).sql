@@ -36,10 +36,10 @@ CREATE TABLE `tb_cart` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_customers`
+-- Table structure for table `tb_users`
 --
 
-CREATE TABLE `tb_customers` (
+CREATE TABLE `tb_users` (
   `customer_id` int(11) NOT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) NOT NULL,
@@ -52,10 +52,10 @@ CREATE TABLE `tb_customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_customers`
+-- Dumping data for table `tb_users`
 --
 
-INSERT INTO `tb_customers` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `mobile_number`, `address`, `account_balance`, `access`) VALUES
+INSERT INTO `tb_users` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `mobile_number`, `address`, `account_balance`, `access`) VALUES
 (1, 'leigh', 'beeton', 'leigh@gmail.com', '123456', 412444575, '1 dally st mowbray', 55, 3),
 (2, 'leigh', 'beeton', 'leighbeeton3@gmail.com', 'Beeton1', 497105575, '1 woodmans lane beaconfield tasmania', NULL, 1),
 (3, 'admin', 'admin', 'admin@gmail.com', 'piJd1fyUQ4gYI', 497105575, 'pass:Test12', NULL, 3),
@@ -179,9 +179,9 @@ ALTER TABLE `tb_cart`
   ADD PRIMARY KEY (`cart_id`);
 
 --
--- Indexes for table `tb_customers`
+-- Indexes for table `tb_users`
 --
-ALTER TABLE `tb_customers`
+ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`customer_id`);
 
 --
@@ -236,9 +236,9 @@ ALTER TABLE `tb_cart`
   MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_customers`
+-- AUTO_INCREMENT for table `tb_users`
 --
-ALTER TABLE `tb_customers`
+ALTER TABLE `tb_users`
   MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --

@@ -14,7 +14,7 @@ if (isset($_POST['register'])){
     $encrypted_password = crypt($password, $salt);
 
 
-  $register = "INSERT INTO tb_customers (`first_name`, `last_name`, `email`,  `address`,`mobile_number`, `password`) VALUES ('$first_name','$last_name','$email','$address','$phone_number','$encrypted_password')";
+  $register = "INSERT INTO tb_users (`first_name`, `last_name`, `email`,  `address`,`mobile_number`, `password`) VALUES ('$first_name','$last_name','$email','$address','$phone_number','$encrypted_password')";
 
 
   $mysqli->query($register);

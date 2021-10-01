@@ -118,7 +118,7 @@ if($session_id == ""){
         </div>
       </div>
       <?php 
-            $query = "SELECT * FROM tb_customers WHERE customer_id = '$session_id'";
+            $query = "SELECT * FROM tb_users WHERE customer_id = '$session_id'";
             $result=$mysqli->query($query);
             while($row = mysqli_fetch_array($result)){
       ?>
@@ -209,9 +209,9 @@ if($session_id == ""){
     if(isset($_POST['submit'])) {
         foreach ($_POST['selected'] as $select)
         {
-            $result =$mysqli->query("SELECT account_balance FROM tb_customers WHERE customer_id = '$session_id'")->fetch_object()->account_balance;
+            $result =$mysqli->query("SELECT account_balance FROM tb_users WHERE customer_id = '$session_id'")->fetch_object()->account_balance;
             $new_bal=(int)$result+(int)$select;
-            $mysqli->query("UPDATE tb_customers SET account_balance = $new_bal WHERE customer_id = '$session_id'");
+            $mysqli->query("UPDATE tb_users SET account_balance = $new_bal WHERE customer_id = '$session_id'");
             header('Location: reload_account.php');
         }
 
@@ -238,16 +238,12 @@ if($session_id == ""){
 
 <!-- Footer -->
 
-    <div class="footer">
-      <footer>
-        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-
 <div class="footer">
     <footer>
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
         <ul class="list-inline">
             <?php if ($session_access == "3"){ ?>
-                <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
+                <li class="list-inline-item"><a href="masterpage.php">Masterpage</a></li>
             <?php } elseif($session_access == "2") {?>
                 <li class="list-inline-item"><a href="mangerpage.php">ManagerPage</a></li>
             <?php } else {?>
@@ -257,12 +253,11 @@ if($session_id == ""){
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
         </ul>
-      </footer>
-    </div>
-    <?php include ('login.php'); ?>
+    </footer>
+  </div>
 
-    <script type="text/javascript" src = "script.js"></script>
+  <?php include ('login.php'); ?>
 
-  </body>
+<script type="text/javascript" src = "script.js"></script>
+</body>
 </html>
-

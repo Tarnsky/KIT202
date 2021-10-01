@@ -32,7 +32,7 @@ window.location='menu_list.php';</script>";
 
 if (isset($_GET['delete'])){
     $id = $_GET['delete'];
-    $mysqli->query("DELETE FROM tb_customers WHERE customer_id='$id'") or die($mysqli->error());
+    $mysqli->query("DELETE FROM tb_users WHERE customer_id='$id'") or die($mysqli->error());
 
     echo "<script type='text/javascript'>alert('A participant is deleted!');
    window.location='menu_list.php';</script>";
