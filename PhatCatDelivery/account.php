@@ -143,7 +143,7 @@ if($session_id == ""){
               <td>Customer ID: </td>
               <td><?php echo $row['customer_id'];?></td>
             </tr>
-            <tr><td><a href="customer_details.php">Edit</a></td></tr>
+            <tr><td><a href="user_details.php">Edit</a></td></tr>
           </table>
         </div>
 <!-- tab content for balance history -->
