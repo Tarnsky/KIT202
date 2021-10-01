@@ -129,7 +129,7 @@ include ('session.php');
           <a href="additemsmenu.php" class="order-button">Edit menu</a>
         </div>
       <div class="pricing-plan">
-        <a href="edituser.php" class="order-button">Edit Staff</a>
+        <a href="editstaff.php" class="order-button">Edit Staff</a>
     </div>
     </div>
   </div>
