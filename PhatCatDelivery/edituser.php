@@ -76,7 +76,7 @@
           $('#fname').val(data.firstname);
           $('#lname').val(data.lastname);
           $('#email').val(data.email);
-          $('#Rname').val(data.Rname);
+          //$('#Rname').val(data.Rname);
           $('#access').val(data.access);
 
 
