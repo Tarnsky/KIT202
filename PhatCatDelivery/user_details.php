@@ -135,15 +135,16 @@ if($session_id == ""){
           while($row = mysqli_fetch_array($result)){
             ?>
             <tr>
-              <td><?php echo $row ['customer_id'] ;?></td>
-              <td><?php echo $row['first_name']." , ".$row['last_name'] ;?></td>
-              <td><?php echo $row['address'];?></td>
-              <td><?php echo $row['email'];?></td>
-              <td><?php echo $row['mobile_number'];?></td>
-              <td><?php echo $row['account_balance'];?></td>
-              <td><?php echo $row['role'];?></td>
-              <td><a href = #edit_modal class="btn  btn-dark open-edit" id="<?= $row['customer_id']; ?>">Edit</td>
-              <td><a href="process.php?delete=<?php echo $row['customer_id']; ?>" class = "btn btn-danger"> Delete</a></td>
+                <td><?php echo $row ['customer_id'] ;?></td>
+                <td><?php echo $row['first_name']." , ".$row['last_name'] ;?></td>
+                <td><?php echo $row['address'];?></td>
+                <td><?php echo $row['email'];?></td>
+                <td><?php echo $row['mobile_number'];?></td>
+                <td><?php echo $row['account_balance'];?></td>
+                <td><?php echo $row['access'];?></td>
+                <td><?php echo $row['restaurant_name'];?></td>
+                <td><a href = #edit_modal class="btn  btn-dark open-edit" id="<?= $row['customer_id']; ?>">Edit</td>
+                <td><a href="process.php?delete=<?php echo $row['customer_id']; ?>" class = "btn btn-danger"> Delete</a></td>
             </tr>
           <?php };
             ?>
