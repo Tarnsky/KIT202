@@ -28,7 +28,7 @@
 
             <tr>
                 <td>Restaurant name</td>
-                <td><input class = "form-control" type="text" id="edit_Rname" name ="edit_Rname"required></td>
+                <td><input class = "form-control" type="text" id="edit_Rname" name ="edit_Rname"></td>
               </tr>
             <tr>
  
@@ -79,7 +79,7 @@
           $('#fname').val(data.firstname);
           $('#lname').val(data.lastname);
           $('#email').val(data.email);
-          //$('#Rname').val(data.Rname);
+          $('#rname').val(data.rname);
           $('#access').val(data.access);
 
 

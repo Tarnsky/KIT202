@@ -125,7 +125,7 @@ include ('session.php');
           <a href="editmenu.php" class="order-button">Edit menu</a>
         </div>
       <div class="pricing-plan">
-        <a href="staff_list.php" class="order-button">Edit staff</a>
+        <a href="user_details.php" class="order-button">Edit staff/users</a>
     </div>
     <div class="pricing-plan">
         <a href="restaurant_list.php" class="order-button">Edit restaurant</a>
