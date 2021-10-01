@@ -2,7 +2,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Change Staff Details</h5>
+        <h5 class="modal-title">Change User Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -27,10 +27,9 @@
             </tr>
 
             <tr>
-                <td>Restaurant name</td>
-                <td><input class = "form-control" type="text" id="edit_Rname" name ="edit_Rname"required></td>
+              <td>Restaurant name</td>
+              <td><input class = "form-control" type="text" id="edit_Rname" name ="edit_Rname"required></td>
               </tr>
-            <tr>
  
         <tr class="form-group">
           <td>Access</td>
