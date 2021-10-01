@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2021 at 07:39 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Oct 01, 2021 at 06:41 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -168,6 +168,36 @@ CREATE TABLE `tb_system_managers` (
   `password` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_users`
+--
+
+CREATE TABLE `tb_users` (
+  `customer_id` int(11) NOT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `mobile_number` int(11) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `account_balance` int(11) DEFAULT NULL,
+  `access` int(3) DEFAULT 1,
+  `employer` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_users`
+--
+
+INSERT INTO `tb_users` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `mobile_number`, `address`, `account_balance`, `access`, `employer`) VALUES
+(1, 'leigh', 'beeton', 'leigh@gmail.com', '123456', 412444575, '1 dally st mowbray', 55, 3, NULL),
+(2, 'leigh', 'beeton', 'leighbeeton3@gmail.com', 'Beeton1', 497105575, '1 woodmans lane beaconfield tasmania', NULL, 1, NULL),
+(3, 'admin', 'admin', 'admin@gmail.com', 'piJd1fyUQ4gYI', 497105575, 'pass:Test12', NULL, 3, NULL),
+(4, 'customer', 'customer', 'customer@gmail.com', 'piJd1fyUQ4gYI', 497105575, 'pass:Test12', NULL, 1, NULL),
+(5, 'leigh', 'beeton', 'test@gmail.com', 'piJd1fyUQ4gYI', 0, '', NULL, 1, NULL);
+
 --
 -- Indexes for dumped tables
 --
@@ -226,6 +256,13 @@ ALTER TABLE `tb_system_managers`
   ADD PRIMARY KEY (`manager_id`);
 
 --
+-- Indexes for table `tb_users`
+--
+ALTER TABLE `tb_users`
+  ADD PRIMARY KEY (`customer_id`),
+  ADD KEY `tb_users_tb_restaurant_restaurant_name_fk` (`employer`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -260,6 +297,12 @@ ALTER TABLE `tb_restaurant_managers`
   MODIFY `restraunt_managers_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tb_users`
+--
+ALTER TABLE `tb_users`
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -279,7 +322,6 @@ ALTER TABLE `tb_menus`
 -- Constraints for table `tb_orders`
 --
 ALTER TABLE `tb_orders`
-  ADD CONSTRAINT `tb_orders_tb_cart_cart_id_fk` FOREIGN KEY (`cart_id`) REFERENCES `tb_cart` (`cart_id`),
   ADD CONSTRAINT `tb_orders_tb_items_item_code_fk` FOREIGN KEY (`item_code`) REFERENCES `tb_items` (`item_code`);
 
 --
@@ -293,6 +335,12 @@ ALTER TABLE `tb_restaurant`
 --
 ALTER TABLE `tb_restaurant_managers`
   ADD CONSTRAINT `tb_restaurant_managers_tb_restaurant_restaurant_name_fk` FOREIGN KEY (`restaurant_name`) REFERENCES `tb_restaurant` (`restaurant_name`);
+
+--
+-- Constraints for table `tb_users`
+--
+ALTER TABLE `tb_users`
+  ADD CONSTRAINT `tb_users_tb_restaurant_restaurant_name_fk` FOREIGN KEY (`employer`) REFERENCES `tb_restaurant` (`restaurant_name`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
