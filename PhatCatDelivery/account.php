@@ -13,6 +13,7 @@ if($session_id == ""){
     <meta charset="utf-8">
     <title>Account Details</title>
     <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!-- jQuery library -->
@@ -84,21 +85,22 @@ if($session_id == ""){
      </div>
   <?php  }?>
   
-<!-- Background image -->
+  </nav>
+  
+ <!-- Background image -->
 
-<div class="p-5 text-center bg-image header-background" >
-  <div class="mask">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="text-white">
-        <h1 class="mb-3">Phatcat Delivery</h1>
-        <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="index.php" role="button">Home</a>
+ <div class="p-5 text-center bg-image header-background" >
+    <div class="mask">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <h1 class="mb-3">Phatcat Delivery</h1>
+            <?php if ($session_id == ""){ ?>
+            <?php } else {?>
+            <?php  }?>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</header>
-  </nav>
-  
 
 <!-- Tabs created for account -->
     <div class="tabs">

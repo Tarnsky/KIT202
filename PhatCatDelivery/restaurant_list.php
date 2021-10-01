@@ -74,7 +74,7 @@ if($session_id == ""){
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
+          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="index.php">Login</a>
         </li>
   
       </ul>
@@ -190,13 +190,13 @@ if($session_id == ""){
       <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
         <ul class="list-inline">
             <?php if ($session_access == "3"){ ?>
-                <li class="list-inline-item"><a href="masterpage.html">Masterpage(temp link)</a></li>
+                <li class="list-inline-item"><a href="masterpage.html">Masterpage</a></li>
             <?php } elseif($session_access == "2") {?>
                 <li class="list-inline-item"><a href="mangerpage.php">ManagerPage</a></li>
             <?php } else {?>
 
             <?php  }?>
-            <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">ManagerLogin</a></li>
+            <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="index.php">ManagerLogin</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
         </ul>

@@ -85,7 +85,7 @@ if($session_id == ""){
           <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
         </li>
         <li class="nav-item">
-          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
+          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="index.php">Login</a>
         </li>
       </ul>
       </div>
@@ -265,7 +265,7 @@ if($session_id == ""){
             <?php } else {?>
 
             <?php  }?>
-            <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#LoginModal">ManagerLogin</a></li>
+            <li class="list-inline-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="index.php">ManagerLogin</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="privacy_policy.php">Privacy Policy</a></li>
         </ul>

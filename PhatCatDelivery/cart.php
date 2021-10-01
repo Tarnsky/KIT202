@@ -62,6 +62,7 @@ if($session_id == ""){
       </form>
         </nav>
     </div>
+    
     <?php if ($session_id == ""){ ?>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -69,7 +70,7 @@ if($session_id == ""){
           <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
         </li>
         <li class="nav-item">
-          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
+          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="index.php">Login</a>
         </li>
       </ul>
       </div>

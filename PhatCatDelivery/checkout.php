@@ -87,7 +87,7 @@ if($session_id == ""){
           <a type = "button" class="nav-link float-right" href="cart.php">Viewcart</a>
         </li>
         <li class="nav-item">
-          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="#loginModal">Login</a>
+          <a type = "button" class="nav-link float-right"data-toggle="modal" data-target="index.php">Login</a>
         </li>
       </ul>
       </div>
