@@ -122,7 +122,7 @@ include ('session.php');
     <div class = "order">
       <div class="panel">
         <div class="pricing-plan">
-          <a href="menu.php" class="order-button">Edit menu</a>
+          <a href="editmenu.php" class="order-button">Edit menu</a>
         </div>
       <div class="pricing-plan">
         <a href="staff_list.php" class="order-button">Edit staff</a>

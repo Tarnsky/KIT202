@@ -1,13 +1,14 @@
 <?php
 include ('db_conn.php');
 include ('session.php');
+include('cartFunctions.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <title>MasterPage</title>
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="utf-8">
+    <title>items</title>
+    <link rel="stylesheet" href="style.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -19,15 +20,14 @@ include ('session.php');
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- icons library-->
-  <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
-</head>
-<body>
+
+      <script src="https://kit.fontawesome.com/6d293d14e1.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
   <header>
+   <!-- Navbar -->
 
-  <!-- Navbar -->
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-white top">
+   <nav class="navbar navbar-expand-lg navbar-light bg-white top">
       <div class="container-fluid">
         <button
         class="navbar-toggler"
@@ -100,41 +100,86 @@ include ('session.php');
   <?php  }?>
   </nav>
 
-  <!-- Background image -->
+<!-- Background image -->
 
-  <div class="p-5 text-center bg-image header-background" >
-    <div class="mask">
-      <div class="d-flex justify-content-center align-items-center h-100">
-        <div class="text-white">
-          <h1 class="mb-3">Phatcat Delivery</h1>
-            <?php if ($session_id == ""){ ?>
-            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
-            <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#loginModal" role="button">SIGN IN</a>
-            <?php } else {?>
-            <a class="btn btn-outline-light btn-lg" href="logout.php" role="button">LOGOUT</a>
-            <?php  }?>
+<div class="p-5 text-center bg-image header-background" >
+  <div class="mask">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+        <h1 class="mb-3">Phatcat Delivery</h1>
+        <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#regiModal" role="button">SIGN UP</a>
+        <a class="btn btn-outline-light btn-lg" href="#" data-toggle="modal" data-target="#LoginModal" role="button">SIGN IN</a>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+ </body>
+ <body>
+ <div class = "order">
+    <div class="panel">
+      <div class="pricing-plan">
+        <div class="card-body text-center">
+<?php 
+echo $_GET['restaurant_name'];
+//Displays all items from the resturant selected in the menu.php
+edit_items($_GET['restaurant_name']);
+
+?>
+          <li class="nav-item">
+            <a class="nav-link"  data-toggle="modal" data-target="#itemModal">Add Item</a>
+          </li>
         </div>
       </div>
     </div>
   </div>
-</header>
+</body>
 
-<!-- MasterPage Edit Restaurants  -->
 
-  <div class="container">
-    <h1>MasterPage</h1>
-    <div class = "order">
-      <div class="panel">
-        <div class="pricing-plan">
-          <a href="editmenu.php" class="order-button">Edit menu</a>
+  <!-- Additem Modal Form -->
+
+  <div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Item registration</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-      <div class="pricing-plan">
-        <a href="edituser.php" class="order-button">Edit Staff</a>
-    </div>
+        <div class="modal-body">
+          <form role = "form" class="regiForm" action = "item_engine.php" method = "post">
+            <table class = "responsive">
+              <tr class="form-group">
+                <td style = "width: 40%"><label for="fname">Name</label></td>
+                <td><input class = "form-control" type="text" id="name" name ="name" required></td>
+              </tr>
+              <tr class="form-group">
+                <td>ingredients</td>
+                <td><input  class = "form-control" type="text" id="ingredients" name = "ingredients" required></td>
+              </tr>
+              <tr class="form-group">
+                <td>Restaurant Name</td>
+                <td><input  class = "form-control" type="text" id="restaurant" name = "restaurant" required></td>
+              </tr>
+              <tr>
+                <tr>
+                    <td>Price</td>
+                    <td><input class = "form-control" type="number" id="item_price" name="item_price" required></td>
+                </tr>
+              <tr class="form-group">
+          </td>
+        </tr>
+            </table>
+            <p><span id = "msg"></span></p>
+
+            <button class = "btn btn-danger float-right" type = "submit" id = "registerItem" name = "registerItem">Add</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-</header>
-
 <!-- Footer -->
 
 <div class="footer">
