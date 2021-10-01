@@ -101,8 +101,7 @@ if($session_id == ""){
     $query = "SELECT * FROM tb_restaurant";
     $result=$mysqli->query($query);
     while($row = mysqli_fetch_array($result)){
-
-    ?>
+     ?>
     <div class="table-responsive p-4">
       <h3>Restaurant</h3>
       <table class="table table-bordered table-striped">
@@ -126,7 +125,7 @@ if($session_id == ""){
       </table>
 
     </div>
-  <?php } ?>
+  <?php }} ?>
 
   </div>
  <?php

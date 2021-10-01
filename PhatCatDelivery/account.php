@@ -191,7 +191,7 @@ if($session_id == ""){
             </tr>
           </table>
             <th>
-                <form action="" method="post">
+                <form action="" method="post" onclick='window.location.reload(true);'>
                     <select name="selected[]">
                         <option value="5">$5</option>
                         <option value="10">$10</option>
@@ -213,7 +213,6 @@ if($session_id == ""){
             $new_bal=(int)$result+(int)$select;
             $mysqli->query("UPDATE tb_customers SET account_balance = $new_bal WHERE customer_id = '$session_id'");
             echo $new_bal;
-            header("Refresh:0");# refresh page
         }
 
     }
